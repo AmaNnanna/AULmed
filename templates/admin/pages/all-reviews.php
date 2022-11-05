@@ -78,10 +78,10 @@
                                 <thead>
                                     <tr>
                                         <th>S/N</th>
+                                        <th>Picture</th>
                                         <th>Full Name</th>
-                                        <th>Email Address</th>
                                         <th>Job Description</th>
-                                        <th>Review Date</th>
+                                        <th>Review</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -89,10 +89,10 @@
                                     <?php while ($Review = mysqli_fetch_object($Reviews)) : ?>
                                         <tr>
                                             <td><?= $Review->id ?></td>
+                                            <td><img style="height: 70px; width:auto" src="<?= $Review->picture ?>" alt="img"></td>
                                             <td><?= "<b>$Review->fullName</b>" ?></td>
-                                            <td><?= $Review->email ?></td>
                                             <td><?= $Review->jobDescription ?></td>
-                                            <td><?= date("jS F, Y. g:ia", strtotime($Review->reviewTime)) ?></td>
+                                            <td><?= $Review->review ?></td>
                                             <td>
                                                 <?php if ($Review->approved == 0) : ?>
                                                     <a href="/pages/admin/<?= $Review->id ?>/approved" class="btn btn-primary">Approve</a>;

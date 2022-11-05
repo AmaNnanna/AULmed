@@ -159,7 +159,7 @@ $Route->add("/user_login", function() {
 $Route->add("/user/logout", function () {
     $Template = new Apps\Template;
     $Template->expire();
-    $Template->redirect("/admin");
+    $Template->redirect("/visitors/pages/login");
 }, 'GET');
 //Logout sessions ends//
 
