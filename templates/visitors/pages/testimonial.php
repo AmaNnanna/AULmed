@@ -32,14 +32,14 @@ include_once 'sidebar.php';
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label for="fullName" class="text-black font-w600">Please Enter Your Name<span class="required" style="color: red;">*</span></label>
+                                        <label for="fullName" class="text-black font-w600">Enter Your Name<span class="required" style="color: red;">*</span></label>
                                         <input type="text" class="form-control" name="fullName">
                                     </div>
                                 </div>
 
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label for="email" class="text-black font-w600">Please Enter Your Email<span class="required" style="color: red;">*</span></label>
+                                        <label for="email" class="text-black font-w600">Enter Your Email<span class="required" style="color: red;">*</span></label>
                                         <input type="text" class="form-control" name="email">
                                     </div>
                                 </div>
@@ -59,7 +59,7 @@ include_once 'sidebar.php';
 
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <input type="submit" value="Post this Campaign" class="submit btn btn-primary">
+                                        <input type="submit" value="Submit Your Review" class="submit btn btn-primary">
                                     </div>
                                 </div>
                             </div>

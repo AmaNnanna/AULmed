@@ -49,7 +49,7 @@
                 </li>
                 <li>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item">MMA care services</li>
+                        <li class="breadcrumb-item">AULmed</li>
                         <li class="breadcrumb-item active"><a href="/admin/pages/admin-home">Admin Page</a></li>
                     </ol>
                 </li>
@@ -68,10 +68,10 @@
                     </div>
                     <div class="card-footer d-sm-flex justify-content-between align-items-center">
                         <div class="card-footer-link mb-4 mb-sm-0">
-                            <a href="#" class="card-text text-dark d-inline">View All Blogs</a>
+                            <a href="/admin/pages/all-blogs" class="card-text text-dark d-inline">View All Blogs</a>
                         </div>
 
-                        <a href="/admin/pages/new-blog" class="btn btn-primary">Create a New Blog</a>
+                        <a href="/admin/pages/new-blogs" class="btn btn-primary">Create a New Blog</a>
                     </div>
                 </div>
             </div>
@@ -86,7 +86,7 @@
                     </div>
                     <div class="card-footer d-sm-flex justify-content-between align-items-center">
                         <div class="card-footer-link mb-4 mb-sm-0">
-                            <a href="#" class="card-text text-dark d-inline">View All Campaigns</a>
+                            <a href="/admin/pages/all-campaigns" class="card-text text-dark d-inline">View All Campaigns</a>
                         </div>
 
                         <a href="/admin/pages/new-campaign" class="btn btn-primary">Create a New Campaign</a>

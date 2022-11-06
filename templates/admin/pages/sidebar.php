@@ -10,7 +10,7 @@
 ***********************************-->
 <div class="deznav">
             <div class="deznav-scroll">
-                <a href="javascript:void(0)" class="add-menu-sidebar" data-toggle="modal" data-target="#addOrderModalside">+ New
+                <a href="" class="add-menu-sidebar" data-toggle="modal" data-target="#addOrderModalside">+ New
                     Event</a>
                 <ul class="metismenu" id="menu">
                     <li>
@@ -22,7 +22,7 @@
                     <ul aria-expanded="false">
                         <li><a href="/admin/pages/new-blog">Post a New Blog</a></li>
                         <li><a href="/admin/pages/new-campaign">Add a New Campaign</a></li>
-                        <li><a href="/admin/pages/all-reviews">View Pending Review</a></li>
+                        <li><a href="/admin/pages/all-reviews">View All Reviews</a></li>
                     </ul>
                     </li>
                 </ul>
@@ -37,3 +37,8 @@
         <!--**********************************
             Sidebar end
         ***********************************-->
+
+
+
+
+        

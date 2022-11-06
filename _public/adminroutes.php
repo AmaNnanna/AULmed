@@ -29,7 +29,49 @@ $Route->add("/admin", function() {
 
 }, 'GET');
 
-//Get All Pending Reviews
+//Get All Blogs
+$Route->add("/admin/pages/all-blogs", function() {
+    
+    $Core = new Apps\Core;
+    $Template = new Apps\Template(auth_url);
+
+    $Template->assign("haspage", true);
+    $Template->assign("menukey", "admin.all-blogs");
+    $Template->assign("title", "Admin");
+
+    $Template->addheader("admin.layouts.header");
+    $Template->addfooter("admin.layouts.footer");
+
+    $blogSql = "SELECT * FROM `blog_posts` ORDER BY id DESC";
+    $Blogs = mysqli_query($Core->dbCon, $blogSql);
+    $Template->assign("Blogs", $Blogs);
+
+    $Template->render("admin.pages.all-blogs");
+
+}, 'GET');
+
+//Get All Campaigns
+$Route->add("/admin/pages/all-campaigns", function() {
+    
+    $Core = new Apps\Core;
+    $Template = new Apps\Template(auth_url);
+
+    $Template->assign("haspage", true);
+    $Template->assign("menukey", "admin.all-campaigns");
+    $Template->assign("title", "Admin");
+
+    $Template->addheader("admin.layouts.header");
+    $Template->addfooter("admin.layouts.footer");
+
+    $campaignSql = "SELECT * FROM `campaigns` ORDER BY id DESC";
+    $Campaigns = mysqli_query($Core->dbCon, $campaignSql);
+    $Template->assign("Campaigns", $Campaigns);
+
+    $Template->render("admin.pages.all-campaigns");
+
+}, 'GET');
+
+//Get All Reviews
 $Route->add("/admin/pages/all-reviews", function() {
     
     $Core = new Apps\Core;

@@ -8,7 +8,7 @@
         <!--**********************************
   Sidebar start
 ***********************************-->
-        <?php
+<?php
         include_once 'sidebar.php';
         ?>
         <!--**********************************
@@ -65,7 +65,7 @@
                         <li>
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">AULmed</li>
-                                <li class="breadcrumb-item active"><a href="">Admin Page</a></li>
+                                <li class="breadcrumb-item active"><a href="/admin/pages/admin-home">Admin Page</a></li>
                             </ol>
                         </li>
                     </ul>
@@ -78,33 +78,26 @@
                                 <thead>
                                     <tr>
                                         <th>S/N</th>
-                                        <th>Picture</th>
-                                        <th>Full Name</th>
-                                        <th>Job Description</th>
-                                        <th>Review</th>
+                                        <th>Campaign Topic</th>
+                                        <th>About this Campaign</th>
+                                        <th>Duration</th>
                                         <th></th>
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php while ($Review = mysqli_fetch_object($Reviews)) : ?>
+                                    <?php while ($Campaign = mysqli_fetch_object($Campaigns)) : ?>
                                         <tr>
-                                            <td><?= $Review->id ?></td>
-                                            <td><img style="height: 70px; width:auto" src="<?= $Review->picture ?>" alt="img"></td>
-                                            <td><?= "<b>$Review->fullName</b>" ?></td>
-                                            <td><?= $Review->jobDescription ?></td>
-                                            <td><?= $Review->review ?></td>
-                                            <td>
-                                                <?php if ($Review->approved == 0) : ?>
-                                                    <a href="/pages/admin/<?= $Review->id ?>/approved" class="btn btn-primary">Approve</a>;
-                                                <?php else : ?>
-                                                    <button class="btn btn-success" aria-disabled>Approved</button>
-                                                <?php endif; ?>
-                                            </td>
+                                            <td><?= $Campaign->id ?></td>
+                                            <td><?= $Campaign->campaignTopic ?></td>
+                                            <td><?= $Campaign->campaignDescription ?></td>
+                                            <td><?= date("jS F, Y. g:ia", strtotime($Campaign->startDate." "."To"." ".$Campaign->endDate)) ?></td>
                                             <td>
                                                 <a href="" class="btn btn-secondary">Delete</a>
                                             </td>
-
+                                            <td>
+                                                <a href="" class="btn btn-success">Update</a>
+                                            </td>
                                         </tr>
                                     <?php endwhile; ?>
                                 </tbody>
