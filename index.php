@@ -29,7 +29,7 @@ $Route->add('/', function () {
     $Campaigns = mysqli_query($Core->dbCon, $sqlCampaign);
     $Template->assign("Campaigns", $Campaigns);
 
-    $sqlReview = "SELECT * FROM `pending_testimonial`";
+    $sqlReview = "SELECT * FROM `pending_testimonial` ORDER BY RAND() LIMIT 3";
     $Reviews = mysqli_query($Core->dbCon, $sqlReview);
     $Template->assign("Reviews", $Reviews);
 
@@ -178,25 +178,25 @@ $Route->add("/pages/{shortname}", function ($shortname) {
 
 // }, 'GET');
 
-// $Route->add('/newsletter', function () {
-//     $Core = new Apps\Core;
-//     $Template = new Apps\Template();
+//Collect Newsletter Email
+$Route->add("/newsletter", function () {
+    $Core = new Apps\Core;
+    $Template = new Apps\Template();
 
-//     $data = $Core->post($_POST);
+    $data = $Core->post($_POST);
 
-//     $newsletterEmail = $data->newsletterEmail;
-//     $Template->debug($data);
+    $newsletterEmail = $data->newsletterEmail;
 
-//     $newId = (int)$Core->NewsletterEmail($newsletterEmail);
+    $newEmail = (int)$Core->NewsletterEmail($newsletterEmail);
 
-//     if ($newId) {
-//         $Template->setError("Congratulations! You have successfully subscribed to our Email newsletter. <br />We'll send the best tips to stay healthy into your Email.", "Success", "/");
-//         $Template->redirect("/");
-//     }
+    if ($newEmail) {
+        $Template->setError("Congratulations! You have successfully subscribed to our Email Newsletter. <br />We'll send the best tips to stay healthy into your Email.", "Success", "/");
+        $Template->redirect("/");
+    }
 
-//     $Template->setError("The Email you provided is already in use.","Success", "/");
-//     $Template->redirect("/");
-// }, 'POST');
+    $Template->setError("This Email already receives our Newsletter.","Success", "/");
+    $Template->redirect("/");
+}, 'POST');
 
 
 //Logout session//

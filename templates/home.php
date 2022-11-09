@@ -1,33 +1,24 @@
 <!-- slider-area -->
 <section id="home" class="slider-area slider-four fix p-relative">
 	<div class="slider-active">
-		<div class="single-slider slider-bg d-flex
-                        align-items-center" style="background:
-                        url(<?= $assets ?>/img/slider/slider_img_bg.png)
-                        no-repeat;background-position: center center;">
+		<div class="single-slider slider-bg d-flex align-items-center" style="background:url(<?= $assets ?>/img/sliderslider_img_bg.png) no-repeat;background-position: center center;">
 			<div class="container">
-				<div class="row justify-content-center pt-50
-                                pb-150">
+				<div class="row justify-content-center pt-50 pb-150">
 					<div class="col-lg-7">
-						<div class="slider-content s-slider-content
-                                        mt-200">
-
-							<h2 data-animation="fadeInUp" data-delay=".4s">Start Learning With
-								Us Now!</h2>
-							<p data-animation="fadeInUp" data-delay=".6s">Glad you are here! <br /> To have free access to our Training courses, Vlog, Blog, Campaigns, Stories and Newsletters. Sign up here! </p>
+						<div class="slider-content s-slider-content mt-200">
+							<h2 data-animation="fadeInUp" data-delay=".4s">Start Learning With Us Now!</h2>
+							<p data-animation="fadeInUp" data-delay=".6s">Glad you are here! <br /> To have free access to our Training courses, Vlogs, Blogs, Campaigns, Stories and Newsletters. Sign up here!</p>
 							<div class="subricbe" data-animation="fadeInDown" data-delay=".4s">
-								<form action="news-mail.php" method="post" class="contact-form ">
-									<label><i class="icon fal
-                                                        fa-envelope"></i> Email
-										Address</label>
-									<input type="text" id="email2" name="email2" class="header-input" placeholder="Enter Your Email Address Here..." required>
-									<button class="btn header-btn">
-										Subscribe Now </button>
+								<form action="/newsletter" method="POST" class="contact-form ">
+									<label><i class="icon fal fa-envelope"></i> Email Address</label>
+									<input type="email" id="email2" name="newsletterEmail" class="header-input" placeholder="Enter Your Email Address Here..." required>
+									<button type="submit" class="btn header-btn">Subscribe Now</button>
 								</form>
 							</div>
-
+							<h5><?= $SELF->Toast(); ?></h5>
 						</div>
 					</div>
+
 					<div class="col-lg-5">
 						<div class="slider-img" data-animation="fadeInUp" data-delay=".4s">
 							<img src="<?= $assets ?>/img/slider/slider_img05.png" alt="slider_img05">
@@ -166,7 +157,7 @@
 				<div class="about-title second-atitle pt-15">
 					<h5>Testimonial</h5>
 					<h3>
-						See What Our <br>Users Say’s
+						See What Our Users Are Saying About <br>Our Informative Contents
 					</h3>
 					<p class="pt-15">"We all need people who will give us feedback. That's how we improve." <br/> Bill Gates. </p>
 					<p class="pt-15">Here are what those benefiting from our website are saying. You too can enjoy the value we provide at no cost.</p>

@@ -71,7 +71,7 @@
                             <a href="/admin/pages/all-blogs" class="card-text text-dark d-inline">View All Blogs</a>
                         </div>
 
-                        <a href="/admin/pages/new-blogs" class="btn btn-primary">Create a New Blog</a>
+                        <a href="/admin/pages/new-blog" class="btn btn-primary">Create a New Blog</a>
                     </div>
                 </div>
             </div>

@@ -96,7 +96,8 @@ class Core extends Model
 
 	//Collect Email for Newsletter
 	public function NewsletterEmail($newsletterEmail){
-		$addEmail = mysqli_query($this->dbCon, "INSERT INTO `newsletter_emails`(`newsletterEmail`) VALUES ([$newsletterEmail])");
+		$sql = "INSERT INTO `newsletter_emails`(`newsletterEmail`) VALUES ('{$newsletterEmail}')";
+		$addEmail = mysqli_query($this->dbCon, $sql);
 
 		return $addEmail;
 	}

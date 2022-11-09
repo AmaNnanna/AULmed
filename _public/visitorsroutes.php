@@ -122,8 +122,6 @@ $Route->add("/review", function () {
 
     $review = mysqli_query($Core->dbCon, $reviewSql);
 
-    
-
     if ($review) {
         $Templet->setError ("Your review has been sent, pending admin approval.", "success", "/visitors/pages/home");
         $Templet->redirect("/visitors/pages/home");
@@ -162,6 +160,4 @@ $Route->add("/user/logout", function () {
     $Template->redirect("/visitors/pages/login");
 }, 'GET');
 //Logout sessions ends//
-
-$Route->run('/');
 
