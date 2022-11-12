@@ -153,6 +153,16 @@ class Core extends Model
 
 		return $newCampaign;
 	}
-	//Create New Blog Campaign
+	//Create New Campaign Ends
+
+	//Update Exiting Campaign
+	public function UpdateCampaign($id, $campaignTopic, $campaignDescription, $campaignDetails, $startDate, $endDate) {
+
+		$sql = "UPDATE `campaigns` SET `campaignTopic`='$campaignTopic',`campaignDescription`='$campaignDescription',`campaignDetails`='$campaignDetails',`startDate`='$startDate',`endDate`='$endDate' WHERE `id`='$id'";
+
+		$campaignUpdate = mysqli_query($this->dbCon, $sql);
+
+		return $campaignUpdate;
+	}
 	
 }

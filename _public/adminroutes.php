@@ -86,7 +86,7 @@ $Route->add("/admin/pages/{id}/update-campaign", function ($id) {
 
     $Template->assign("newUpdate", $newUpdate);
 
-    $Template->render("admin.pages.{$id}.update-campaign");
+    $Template->render("admin.pages.update-campaign");
 }, 'GET');
 
 //Get All User Reviews
@@ -306,6 +306,66 @@ $Route->add("/new_campaign", function () {
     $Template->redirect("/admin/pages/admin-home");
 }, 'POST');
 //Post Campaign by Admin Ends
+
+//Update Campaign by Admin
+//Change Image
+$Route->add("/update_campaign/{id}/image", function ($id) {
+    $Core = new Apps\Core();
+    $Template = new Apps\Template();
+
+    $campaignImage = "";
+
+    //Uploading New Campaign Pictures
+    $campaignImage_path_to_db = "";
+
+    $Uploader = new \Verot\Upload\Upload($_FILES['campaignImage']);
+
+    if ($Uploader->uploaded) {
+        $name = md5(time() . mt_rand(1, 10000));
+        $Uploader->file_new_name_body = $name;
+        $Uploader->process("./_store/campaigns/");
+
+        if ($Uploader->processed) {
+            $campaignImage_path_to_db = $Uploader->file_dst_pathname;
+        } else {
+        }
+    }
+
+    $campaignImage = $campaignImage_path_to_db;
+
+    $sql = "UPDATE `campaigns` SET `campaignImage`='$campaignImage' WHERE `id`='$id'";
+    $newCampaignImage = mysqli_query($Core->dbCon, $sql);
+
+    if ($newCampaignImage) {
+        $Template->setError("Campaign Image successfully changed", "success", "/admin/pages/update-campaign");
+        $Template->redirect("/admin/pages/update-campaign");
+    }
+
+}, 'POST');
+
+//Change Other Posts
+$Route->add("/update_campaign/{id}", function ($id) {
+    $Core = new Apps\Core;
+    $Template = new Apps\Template;
+
+    $data = $Core->post($_POST);
+
+    $campaignTopic = $data->campaignTopic;
+    $campaignDescription = $data->campaignDescription;
+    $campaignDetails = $data->campaignDetails;
+    $startDate = $data->startDate;
+    $endDate = $data->endDate;
+
+    $newCampaign = (int)$Core->UpdateCampaign($id, $campaignTopic, $campaignDescription, $campaignDetails, $startDate, $endDate);
+
+    if ($newCampaign) {
+        $Template->setError("Your Campaign was updated successfully", "success", "/admin/pages/admin-home");
+        $Template->redirect("/admin/pages/admin-home");
+    }
+
+    $Template->setError("Something went wrong, and your campmaign didn't update", "warning", "/admin/pages/admin-home");
+    $Template->redirect("/admin/pages/admin-home");
+}, 'POST');
 
 //Delete Blog
 $Route->add("/delete-blog/{id}", function ($id) {

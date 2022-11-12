@@ -45,7 +45,7 @@
                                 <nav id="mobile-menu" style="display: block;">
                                     <ul>
                                         <li class="sub"><a href="./pages/health-topics">Health Topics</a></li>
-                                        <li class="sub"><a href="./pages/stories">Stories</a></li>
+                                        <li class="sub"><a href="./pages/stories">Your Doctor's Diary</a></li>
                                         <li class="sub"><a href="./pages/campaigns">Campaigns</a></li>
                                         <li class="sub"><a href="./pages/blog">Blog</a></li>
                                         <li class="sub"><a href="./pages/about-us">About Us</a></li>

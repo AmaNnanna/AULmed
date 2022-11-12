@@ -24,69 +24,89 @@
 </section>
 <!-- breadcrumb-area-end -->
 
-<!-- services-area -->
-<section id="services" class="services-area pt-120 pb-90 fix" style=" background-image: url(<?= $assets ?>/img/bg/blog-bg-aliments.png); background-repeat: no-repeat; background-position: center center;background-attachment: fixed;">
+<!-- about-area -->
+<section id="about" class="about-area about-p pt-120 pb-120 p-relative" style="background: url(<?= $assets ?>/img/features/about-bg-aliments.png) no-repeat;background-position: center center;">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section-title center-align text-center mb-50">
-                    <h5>About Us</h5>
-                    <h2>
-                        This Page is Coming Soon. <br />
-                        Get in Touch While You Wait
-                    </h2>
-                </div>
+        <div class="row align-items-center">
+            <div class="about-title second-atitle pb-25">
+                <h5>What We Do</h5>
+                <h2>AULmed is Your Mobile Health Education Plug.</h2>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col-lg-4 col-md-12">
-                <div class="services-box mt-0 mb-30 text-center">
-                    <div class="services-icon">
-                        <img src="<?= $assets ?>/img/icon/cn-icon1.png" alt="icon01">
-                    </div>
-                    <div class="services-content2">
-                        <h5>Email Address</h5>
-                        <p>contact@aulmed.org</p>
-                    </div>
-                </div>
-                <div class="services-box mt-0 mb-30 text-center">
-                    <div class="services-icon">
-                        <img src="<?= $assets ?>/img/icon/cn-icon3.png" alt="icon01">
-                    </div>
-                    <div class="services-content2">
-                        <h5>Office Address</h5>
-                        <p>531 Northern Parade, Hilsea <br /> Portsmouth Hampshire.</p>
+            <div class="col-lg-6 col-md-12 col-sm-12 pr-30">
+                <div class="s-about-img p-relative  wow fadeInLeft  animated" data-animation="fadeInLeft" data-delay=".4s">
+                    <img src="<?= $assets ?>/img/features/about_img.png" alt="img">
+                    <div class="about-text second-about">
+                        <div class="all-text">
+                            <h4>We Care</h4>
+                            <span>About <br />
+                                <h5>Your Health</h5>
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="col-lg-8 col-md-12">
+            <div class="col-lg-6 col-md-12 col-sm-12 ">
+                <div class="about-content s-about-content  wow fadeInRight  animated" data-animation="fadeInRight" data-delay=".4s">
+                    <p>We support healthy living and practices, hosting LIVES as a practical approach to health awareness and education. We write blogs and create vlogs to make learning easy. </p>
 
-                <form action="/contact_page" method="POST" class="contact-form ">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="contact-field p-relative c-name mb-20">
-                                <input type="text" id="firstn" name="fullName" placeholder="Your Full Name" required>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="contact-field p-relative c-subject mb-20">
-                                <input type="email" id="email" name="email" placeholder="Your Eamil Address" required>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="contact-field p-relative c-message mb-45">
-                                <textarea name="message" id="message" cols="30" rows="10" placeholder="Write Us a Message..."></textarea>
-                            </div>
-                            <div class="slider-btn">
-                                <button type="submit" class="btn ss-btn" data-animation="fadeInRight" data-delay=".8s">Send Message</button>
+                    <p>Have you read YOUR DOCTOR’S DIARY, it will give you an insight and a deeper understanding about your health, what your doctor thinks and what you should do better. We will give you all the support you need in understanding your health. We are just a subscribe button away from where you are.</p>
+                </div>
+            </div>
+
+
+
+            <div class="col-lg-6 col-md-12 col-sm-12 mt-60">
+                <div class="about-content s-about-content  wow fadeInLeft  animated" data-animation="fadeInLeft" data-delay=".4s">
+
+                    <h4>Our role</h4>
+                    <p> We support healthy living and anyone interested in improving their health, the carers and the elderly, those who find it difficult to understand what their health condition is about and the language of health care. Email us and we will keep track with you.</p>
+
+                    <div class="about-content3">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <ul class="green">
+                                    <li>
+                                        <span><h5>We Write About Healthy Living</h5> <br />
+                                        <p>We are actively writing and updating you on the interesting health topics and learning challenges that will positively impact your health.</p></span>
+                                    </li>
+                                    <li>
+                                        <span><h5>We Talk About Healthy Living</h5> <br />
+                                        <p>Our Vlog and short video clips will help you understand better as they are very descriptive and interactive.</p></span>
+                                    </li>
+                                    <li>
+                                        <span><h5> We Connect for a Healthy Living</h5> <br />
+                                        <p>Do you want to chat up a medic and talk about your health further and have some ebooks,  and leaflets sent to you.</p></span>
+                                    </li>
+                                    <li>
+                                        <span><h5>We Support Healthy Living</h5> <br />
+                                        <p>We create spaces, lives to think, network, share knowledge and practices.</p></span>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                </form>
+                </div>
             </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12 pr-30 mt-60">
+                <div class="s-about-img p-relative  wow fadeInLeft  animated" data-animation="fadeInLeft" data-delay=".4s">
+                    <img src="<?= $assets ?>/img/features/doc.jpg" alt="img">
+                    <div class="about-text second-about">
+                        <div class="all-text">
+                            <h4>We Care</h4>
+                            <span>About <br />
+                                <h5>Your Health</h5>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-title second-atitle mt-60 pb-25">
+                <h5>Follow up on Substack, Twitter and YouTube. We wish you the best of health.</h5>
         </div>
     </div>
 </section>
-<!-- services-area-end -->
+<!-- about-area-end -->
