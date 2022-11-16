@@ -76,8 +76,8 @@ include_once 'sidebar.php';
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label for="shortDescription" class="text-black font-w600">Write a Short Description for this Blog</label>
-                                        <input type="text" class="form-control" name="shortDescription">
+                                        <label for="shortDescription" class="text-black font-w600">Write a Short Description for this Blog (200 Characters max.)</label>
+                                        <input type="text" class="form-control" name="shortDescription" maxlength="200">
                                     </div>
                                 </div>
                                 <div class="col-lg-12">

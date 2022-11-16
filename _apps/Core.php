@@ -155,6 +155,17 @@ class Core extends Model
 	}
 	//Create New Campaign Ends
 
+	//Update Existing Blog
+	public function UpdateBlog($id, $heading, $postCreator, $shortDescription, $firstContent, $secondContent, $thirdContent, $blockQuote, $quoteAuthor, $videoLink, $secondImageHeading, $thirdImageHeading) {
+
+		$sql = "UPDATE `blog_posts` SET `heading`=
+		$heading', `postCreator`='$postCreator', `shortDescription`='$shortDescription', `firstContent`='$firstContent', `secondContent`='$secondContent', `thirdContent`='$thirdContent', `blockQuote`='$blockQuote', `quoteAuthor`='$quoteAuthor', `videoLink`='$videoLink', `secondImageHeading`='$secondImageHeading', `thirdImageHeading`='$thirdImageHeading' WHERE `id`='$id'";
+
+		$blogUpdate = mysqli_query($this->dbCon, $sql);
+
+		return $blogUpdate;
+	}
+
 	//Update Exiting Campaign
 	public function UpdateCampaign($id, $campaignTopic, $campaignDescription, $campaignDetails, $startDate, $endDate) {
 

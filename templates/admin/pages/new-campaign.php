@@ -84,8 +84,8 @@ include_once 'sidebar.php';
 
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <label for="campaignDescription" class="text-black font-w600">Write a Brief Description for this Campaign</label>
-                                        <textarea class="form-control" name="campaignDescription"></textarea>
+                                        <label for="campaignDescription" class="text-black font-w600">Write a Brief Description for this Campaign (200 characters max.)</label>
+                                        <input type="text" class="form-control" name="campaignDescription" maxlength="200">
                                     </div>
                                 </div>
 

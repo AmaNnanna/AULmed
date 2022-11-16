@@ -59,7 +59,6 @@ include_once 'sidebar.php';
                         <div class="input-group col-lg-12 my-5">
 
                             <label for="campaignImage" class="text-black font-w600 pr-4">Change Campaign Image?</label>
-                            <input type="file" class="form-control" name="campaignImage">
                             <div class="input-group-append">
                                 <button class="btn btn-outline-secondary" type="button" data-toggle="modal" data-target="#addOrderModalside_<?= $newUpdate->id ?>">Change Image</button>
 
@@ -76,6 +75,7 @@ include_once 'sidebar.php';
                                                 <form class="comment-form" id="commentform" action="/update_campaign/<?= $newUpdate->id ?>/image" method="POST" enctype="multipart/form-data">
                                                     <div class="form-group">
                                                         <label class="text-black font-w500">Replace Exiting Image?</label>
+                                                        <input type="file" class="form-control" name="campaignImage">
                                                         <p>Doing this will remove the current image!</p>
                                                     </div>
                                                     <div class="form-group">
@@ -88,8 +88,7 @@ include_once 'sidebar.php';
                                 </div>
                             </div>
                         </div>
-
-                        <h5><?= $SELF->Toast(); ?></h5>
+                        
 
                         <form class="comment-form" id="commentform" action="/update_campaign/<?= $newUpdate->id ?>" method="POST" enctype="multipart/form-data">
                             <div class="row">

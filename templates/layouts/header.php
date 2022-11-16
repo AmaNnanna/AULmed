@@ -48,6 +48,7 @@
                                         <li class="sub"><a href="./pages/stories">Your Doctor's Diary</a></li>
                                         <li class="sub"><a href="./pages/campaigns">Campaigns</a></li>
                                         <li class="sub"><a href="./pages/blog">Blog</a></li>
+                                        <li class="sub"><a href="./pages/vlog">Videos & Vlog</a></li>
                                         <li class="sub"><a href="./pages/about-us">About Us</a></li>
 
                                         <li><a class="btn ss-btn py-3 px-5 text-white" href="./visitors/pages/login" >Login</a></li>

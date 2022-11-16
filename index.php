@@ -49,13 +49,12 @@ $Route->add("/pages/blog", function () {
     $Template->assign("haspage", true);
     $Template->assign("menukey", "pages.blog");
     $Template->assign("title", "Blogs");
-    
+
     $sql = "SELECT * FROM blog_posts ORDER BY id DESC";
     $BlogPosts = mysqli_query($Core->dbCon, $sql);
     $Template->assign("BlogPosts", $BlogPosts);
 
     $Template->render("pages.blog");
-
 }, 'GET');
 
 //Get Details of Each Blog
@@ -94,13 +93,12 @@ $Route->add("/pages/campaigns", function () {
     $Template->assign("haspage", true);
     $Template->assign("menukey", "pages.campaigns");
     $Template->assign("title", "Campaigns");
-    
+
     $sql = "SELECT * FROM campaigns ORDER BY id DESC";
     $Campaigns = mysqli_query($Core->dbCon, $sql);
     $Template->assign("Campaigns", $Campaigns);
 
     $Template->render("pages.campaigns");
-
 }, 'GET');
 
 //Get Details of Each Campaign
@@ -194,7 +192,7 @@ $Route->add("/newsletter", function () {
         $Template->redirect("/");
     }
 
-    $Template->setError("This Email already receives our Newsletter.","Success", "/");
+    $Template->setError("This Email already receives our Newsletter.", "Success", "/");
     $Template->redirect("/");
 }, 'POST');
 

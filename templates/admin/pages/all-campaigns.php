@@ -71,6 +71,8 @@
                     </ul>
                 </div>
 
+                <h5><?= $SELF->Toast(); ?></h5>
+
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="table-responsive">

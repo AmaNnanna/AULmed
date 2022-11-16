@@ -123,7 +123,7 @@
                                                 
                                             </td>
                                             <td>
-                                                <a href="" class="btn btn-success">Update</a>
+                                                <a href="/admin/pages/<?= $Blog->id ?>/update-blog" class="btn btn-success">Update</a>
                                             </td>
                                         </tr>
                                     <?php endwhile; ?>

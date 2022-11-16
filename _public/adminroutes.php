@@ -67,6 +67,28 @@ $Route->add("/admin/pages/all-campaigns", function () {
     $Template->render("admin.pages.all-campaigns");
 }, 'GET');
 
+//Render Blog Update page
+$Route->add("/admin/pages/{id}/update-blog", function ($id) {
+
+    $Core = new Apps\Core;
+    $Template = new Apps\Template(auth_url);
+
+    $Template->assign("haspage", true);
+    $Template->assign("menukey", "admin.update-blog");
+    $Template->assign("title", "Update-Blog");
+
+    $Template->addheader("admin.layouts.header");
+    $Template->addfooter("admin.layouts.footer");
+
+    $blogSql = "SELECT * FROM `blog_posts` WHERE id = $id";
+    $updateBlog = mysqli_query($Core->dbCon, $blogSql);
+    $newBlogUpdate = mysqli_fetch_object($updateBlog);
+
+    $Template->assign("newBlogUpdate", $newBlogUpdate);
+
+    $Template->render("admin.pages.update-blog");
+}, 'GET');
+
 //Render Campaign Update page
 $Route->add("/admin/pages/{id}/update-campaign", function ($id) {
 
@@ -307,6 +329,140 @@ $Route->add("/new_campaign", function () {
 }, 'POST');
 //Post Campaign by Admin Ends
 
+
+
+//Update Blog by Admin-Change Images
+//First Image
+$Route->add("/update_blog/{id}/first_image", function ($id) {
+    $Core = new Apps\Core();
+    $Template = new Apps\Template();
+
+    $firstImage = "";
+    $first_image_path_to_db = "";
+
+    $Uploader = new \Verot\Upload\Upload($_FILES['firstImage']);
+
+    if ($Uploader->uploaded) {
+        $name = md5(time() . mt_rand(1, 10000));
+        $Uploader->file_new_name_body = $name;
+        $Uploader->process("./_store/blog_posts/");
+
+        if ($Uploader->processed) {
+            $first_image_path_to_db = $Uploader->file_dst_pathname;
+        } else {
+        }
+    }
+
+    $firstImage = $first_image_path_to_db;
+    $sql = "UPDATE `blog_posts` SET `firstImage`='$firstImage' WHERE `id`='$id'";
+    $newFirstImage = mysqli_query($Core->dbCon, $sql);
+
+    if ($newFirstImage) {
+        $Template->setError("Image Changed Successfully. <br />You can update the rest of the blog.", "success", "/admin/pages/all-blogs");
+        $Template->redirect("/admin/pages/all-blogs");
+    }
+}, 'POST');
+
+//Second Image
+$Route->add("/update_blog/{id}/second_image", function ($id) {
+    $Core = new Apps\Core();
+    $Template = new Apps\Template();
+
+    $secondImage = "";
+    $second_image_path_to_db = "";
+
+    $Uploader = new \Verot\Upload\Upload($_FILES['secondImage']);
+
+    if ($Uploader->uploaded) {
+        $name = md5(time() . mt_rand(1, 10000));
+        $Uploader->file_new_name_body = $name;
+        $Uploader->process("./_store/blog_posts/");
+
+        if ($Uploader->processed) {
+            $second_image_path_to_db = $Uploader->file_dst_pathname;
+        } else {
+        }
+    }
+
+    $secondImage = $second_image_path_to_db;
+
+    $sql = "UPDATE `blog_posts` SET `secondImage`='$secondImage' WHERE `id`='$id'";
+    $newSecondImage = mysqli_query($Core->dbCon, $sql);
+
+    if ($newSecondImage) {
+        $Template->setError("Image Changed Successfully. <br />You can update the rest of the blog.", "success", "/admin/pages/all-blogs");
+        $Template->redirect("/admin/pages/all-blogs");
+    }
+}, 'POST');
+
+//Third Image
+$Route->add("/update_blog/{id}/third_image", function ($id) {
+    $Core = new Apps\Core();
+    $Template = new Apps\Template();
+
+    $thirdImage = "";
+    $third_image_path_to_db = "";
+
+    $Uploader = new \Verot\Upload\Upload($_FILES['thirdImage']);
+
+    if ($Uploader->uploaded) {
+        $name = md5(time() . mt_rand(1, 10000));
+        $Uploader->file_new_name_body = $name;
+        $Uploader->process("./_store/blog_posts/");
+
+        if ($Uploader->processed) {
+            $third_image_path_to_db = $Uploader->file_dst_pathname;
+        } else {
+        }
+    }
+
+    $thirdImage = $third_image_path_to_db;
+
+    $sql = "UPDATE `blog_posts` SET `thirdImage`='$thirdImage' WHERE `id`='$id'";
+    $newThirdImage = mysqli_query($Core->dbCon, $sql);
+
+    if ($newThirdImage) {
+        $Template->setError("Image Changed Successfully. <br />You can update the rest of the blog.", "success", "/admin/pages/all-blogs");
+        $Template->redirect("/admin/pages/all-blogs");
+    }
+}, 'POST');
+//Update Blog by Admin-Change Images Ends
+
+
+//Updating the Rest of the Blog
+$Route->add("/update_blog/{id}", function ($id) {
+    $Core = new Apps\Core;
+    $Template = new Apps\Template;
+
+    $data = $Core->post($_POST);
+
+    $heading = $data->heading;
+    $postCreator = $data->postCreator;
+    $shortDescription = $data->shortDescription;
+
+    $firstContent = $data->firstContent;
+    $secondContent = $data->secondContent;
+    $thirdContent = $data->thirdContent;
+
+    $blockQuote = $data->blockQuote;
+    $quoteAuthor = $data->quoteAuthor;
+    $videoLink = $data->videoLink;
+
+    $secondImageHeading = $data->secondImageHeading;
+    $thirdImageHeading = $data->thirdImageHeading;
+
+    $updateBlog = (int)$Core->UpdateBlog($id, $heading, $postCreator, $shortDescription, $firstContent, $secondContent, $thirdContent, $blockQuote, $quoteAuthor, $videoLink, $secondImageHeading, $thirdImageHeading);
+
+    if ($updateBlog) {
+        $Template->setError("Your Blog was Updated", "success", "/admin/pages/admin-home");
+        $Template->redirect("/admin/pages/admin-home");
+    }
+
+    $Template->setError("Something went wrong, and your blog didn't update", "warning", "/admin/pages/admin-home");
+    $Template->redirect("/admin/pages/admin-home");
+}, 'POST');
+
+
 //Update Campaign by Admin
 //Change Image
 $Route->add("/update_campaign/{id}/image", function ($id) {
@@ -337,8 +493,8 @@ $Route->add("/update_campaign/{id}/image", function ($id) {
     $newCampaignImage = mysqli_query($Core->dbCon, $sql);
 
     if ($newCampaignImage) {
-        $Template->setError("Campaign Image successfully changed", "success", "/admin/pages/update-campaign");
-        $Template->redirect("/admin/pages/update-campaign");
+        $Template->setError("Image Changed Successfully. <br />You can update the rest of the campaign.", "success", "/admin/pages/all-campaigns");
+        $Template->redirect("/admin/pages/all-campaigns");
     }
 
 }, 'POST');

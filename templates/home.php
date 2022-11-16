@@ -82,7 +82,7 @@
 
 							<div class="row">
 								<div class="col-lg-12">
-									<h4><a href="blog-details.html"><?= $BlogPost->heading ?></a></h4>
+									<h4><?= $BlogPost->heading ?></h4>
 									<div class="blog-btn">
 										<a href="/pages/blog"><i class="fal fa-chevron-circle-right">View All Blogs</i></a>
 									</div>
