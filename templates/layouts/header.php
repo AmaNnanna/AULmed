@@ -40,23 +40,22 @@
                             </div>
                         </div>
                         <div class="col-xl-8 col-lg-8">
-
-                            <div class="main-menu text-right text-xl-right">
+                            <div class="main-menu text-center text-xl-center">
                                 <nav id="mobile-menu" style="display: block;">
                                     <ul>
                                         <li class="sub"><a href="./pages/health-topics">Health Topics</a></li>
                                         <li class="sub"><a href="./pages/stories">Your Doctor's Diary</a></li>
                                         <li class="sub"><a href="./pages/campaigns">Campaigns</a></li>
                                         <li class="sub"><a href="./pages/blog">Blog</a></li>
-                                        <li class="sub"><a href="./pages/vlog">Videos & Vlog</a></li>
                                         <li class="sub"><a href="./pages/about-us">About Us</a></li>
 
-                                        <li><a class="btn ss-btn py-3 px-5 text-white" href="./visitors/pages/login" >Login</a></li>
+                                        <li class="sub">
+                                            <a class="btn ss-btn py-3 px-4 mx-3 text-white" href="./visitors/pages/login">Login</a>
+                                        </li>
                                     </ul>
                                 </nav>
                             </div>
                         </div>
-
                         <div class="col-12">
                             <div class="mobile-menu"></div>
                         </div>
