@@ -52,7 +52,7 @@
                         </div>
                         <div class="case-study-content">
 
-                            <h5><a href="projects-detail.html">Web Traffic Management</a></h5>
+                            <h5><a href="/pages/story-details">Web Traffic Management</a></h5>
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                         </div>
                         <div class="case-study-content">
 
-                            <h5><a href="projects-detail.html">Mikando Web Research & SEO</a></h5>
+                            <h5><a href="/pages/story-details">Mikando Web Research & SEO</a></h5>
                         </div>
                     </div>
                 </div>
@@ -85,7 +85,7 @@
                         </div>
                         <div class="case-study-content">
 
-                            <h5><a href="projects-detail.html">Kiring Maoko Web Development</a></h5>
+                            <h5><a href="/pages/story-details">Kiring Maoko Web Development</a></h5>
                         </div>
                     </div>
                 </div>
@@ -96,7 +96,7 @@
                         </div>
                         <div class="case-study-content">
 
-                            <h5><a href="projects-detail.html">Kiring Maoko Web Development</a></h5>
+                            <h5><a href="/pages/story-details">Kiring Maoko Web Development</a></h5>
                         </div>
                     </div>
                 </div>
@@ -107,7 +107,7 @@
                         </div>
                         <div class="case-study-content">
 
-                            <h5><a href="projects-detail.html">Kiring Maoko Web Development</a></h5>
+                            <h5><a href="/pages/story-details">Kiring Maoko Web Development</a></h5>
                         </div>
                     </div>
                 </div>

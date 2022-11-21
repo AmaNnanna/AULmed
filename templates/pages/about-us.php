@@ -68,20 +68,28 @@
                             <div class="col-md-12">
                                 <ul class="green">
                                     <li>
-                                        <span><h5>We Write About Healthy Living</h5> <br />
-                                        <p>We are actively writing and updating you on the interesting health topics and learning challenges that will positively impact your health.</p></span>
+                                        <span>
+                                            <h5>We Write About Healthy Living</h5> <br />
+                                            <p>We are actively writing and updating you on the interesting health topics and learning challenges that will positively impact your health.</p>
+                                        </span>
                                     </li>
                                     <li>
-                                        <span><h5>We Talk About Healthy Living</h5> <br />
-                                        <p>Our Vlog and short video clips will help you understand better as they are very descriptive and interactive.</p></span>
+                                        <span>
+                                            <h5>We Talk About Healthy Living</h5> <br />
+                                            <p>Our Vlog and short video clips will help you understand better as they are very descriptive and interactive.</p>
+                                        </span>
                                     </li>
                                     <li>
-                                        <span><h5> We Connect for a Healthy Living</h5> <br />
-                                        <p>Do you want to chat up a medic and talk about your health further and have some ebooks,  and leaflets sent to you.</p></span>
+                                        <span>
+                                            <h5> We Connect for a Healthy Living</h5> <br />
+                                            <p>Do you want to chat up a medic and talk about your health further and have some ebooks, and leaflets sent to you.</p>
+                                        </span>
                                     </li>
                                     <li>
-                                        <span><h5>We Support Healthy Living</h5> <br />
-                                        <p>We create spaces, lives to think, network, share knowledge and practices.</p></span>
+                                        <span>
+                                            <h5>We Support Healthy Living</h5> <br />
+                                            <p>We create spaces, lives to think, network, share knowledge and practices.</p>
+                                        </span>
                                     </li>
                                 </ul>
                             </div>
@@ -106,6 +114,7 @@
 
             <div class="about-title second-atitle mt-60 pb-25">
                 <h5>Follow up on Substack, Twitter and YouTube. We wish you the best of health.</h5>
+            </div>
         </div>
     </div>
 </section>

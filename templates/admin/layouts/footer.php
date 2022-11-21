@@ -74,6 +74,7 @@
  <script src="<?= $adminassets ?>/js/plugins-init/jquery-asColorPicker.init.js" type="text/javascript"></script>
  <script src="<?= $adminassets ?>/js/plugins-init/material-date-picker-init.js" type="text/javascript"></script>
  <script src="<?= $adminassets ?>/js/plugins-init/pickadate-init.js" type="text/javascript"></script>
+ <script src="<?= $adminassets ?>/js/custom.js" type="text/javascript"></script>
  <script src="<?= $adminassets ?>/js/custom-10.js" type="text/javascript"></script>
  <script src="<?= $adminassets ?>/js/deznav-init-10.js" type="text/javascript"></script>
 

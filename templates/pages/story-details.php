@@ -28,6 +28,10 @@
 <section class="project-detail">
     <div class="container">
         <!-- Upper Box -->
+        <div class="about-title second-atitle mt-60 pb-25">
+            <h5>Click the arrow to see the next slide.</h5>
+        </div>
+
         <div class="upper-box">
             <div class="bsingle__post mb-50">
                 <div class="bsingle__post-thumb blog-active">
@@ -35,11 +39,9 @@
                         <img src="<?= $assets ?>/img/blog/inner_b2.jpg" alt="">
                         <div class="bsingle__content">
                             <div class="admin">
-                                <a href="#"><i class="far fa-user"></i>
-                                    by Hetmayar</a>
+                                <li><i class="far fa-user"></i>by Hetmayar</li>
                             </div>
-
-                            <h2><a href="blog-details.html">Lorem ipsum dolor sit amet, consectetur cing elit, sed do eiusmod tempor.</a></h2>
+                            <h2>Lorem ipsum dolor sit amet, consectetur cing elit, sed do eiusmod tempor.</h2>
                             <p>Novia's spaciously two bedroom apartments are perfect for families and even business partners. Look out into the Manhattan skyline from the open fully equipped kitchen.
                             </p>
                             <div class="meta-info">
@@ -54,15 +56,14 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="slide-post">
                         <img src="<?= $assets ?>/img/blog/inner_b3.jpg" alt="">
                         <div class="bsingle__content">
                             <div class="admin">
-                                <a href="#"><i class="far fa-user"></i>
-                                    by H. Mayar</a>
+                                <li><i class="far fa-user"></i>by H. Mayar</li>
                             </div>
-                            
-                            <h2><a href="blog-details.html">New ipsum dolor sit amet, consectetur cing elit, sed do eiusmod tempor.</a></h2>
+                            <h2>New ipsum dolor sit amet, consectetur cing elit, sed do eiusmod tempor.</h2>
                             <p>Novia's spaciously two bedroom apartments are perfect for families and even business partners. Look out into the Manhattan skyline from the open fully equipped kitchen.
                             </p>
                             <div class="meta-info">
@@ -82,11 +83,9 @@
                         <img src="<?= $assets ?>/img/blog/inner_b1.jpg" alt="">
                         <div class="bsingle__content">
                             <div class="admin">
-                                <a href="#"><i class="far fa-user"></i>
-                                    by O. Hayar</a>
+                                <li><i class="far fa-user"></i>by O. Hayar</li>
                             </div>
-                            
-                            <h2><a href="blog-details.html">Another dolat sit amet, consectetur cing elit, sed do eiusmod tempor.</a></h2>
+                            <h2>Another dolat sit amet, consectetur cing elit, sed do eiusmod tempor.</h2>
                             <p>Novia's spaciously two bedroom apartments are perfect for families and even business partners. Look out into the Manhattan skyline from the open fully equipped kitchen.
                             </p>
                             <div class="meta-info">

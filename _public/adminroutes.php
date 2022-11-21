@@ -187,6 +187,9 @@ $Route->add("/admin_login", function () {
         $Template->authorize($admin->id);
         $Template->redirect("/admin/pages/admin-home");
     }
+
+    $Template->setError("Username or Password incorrect", "success", "/admin/pages/login");
+    $Template->redirect("/admin/pages/login");
 }, 'POST');
 
 //Post Blog by Admin
@@ -329,6 +332,26 @@ $Route->add("/new_campaign", function () {
 }, 'POST');
 //Post Campaign by Admin Ends
 
+//Add New Doctor
+$Route->add("/new_doctor", function() {
+    $Core = new Apps\Core;
+    $Template = new Apps\Template;
+
+    $data = $Core->post($_POST);
+
+    $name = $data->name;
+
+    $sql = "INSERT INTO `doctors`(`name`) VALUES ('{$name}')";
+    $doctorAdded = mysqli_query($Core->dbCon, $sql);
+
+    if ($doctorAdded) {
+        $Template->setError("You have successfully added Doctor to list", "success", "/admin/pages/new-diary");
+        $Template->redirect("/admin/pages/new-diary");
+    }
+    $Template->setError("This Doctor Already Exits in the List", "success", "/admin/pages/new-diary");
+    $Template->redirect("/admin/pages/new-diary");
+}, 'POST');
+
 
 
 //Update Blog by Admin-Change Images
@@ -354,6 +377,7 @@ $Route->add("/update_blog/{id}/first_image", function ($id) {
     }
 
     $firstImage = $first_image_path_to_db;
+    
     $sql = "UPDATE `blog_posts` SET `firstImage`='$firstImage' WHERE `id`='$id'";
     $newFirstImage = mysqli_query($Core->dbCon, $sql);
 
