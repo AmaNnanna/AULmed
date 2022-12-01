@@ -192,7 +192,7 @@ $Route->add("/admin_login", function () {
     $Template->redirect("/admin/pages/login");
 }, 'POST');
 
-//Post Blog by Admin
+//Post New Blog by Admin
 $Route->add("/new_blog", function () {
     $Core = new Apps\Core;
     $Template = new Apps\Template;
@@ -286,7 +286,7 @@ $Route->add("/new_blog", function () {
 }, 'POST');
 //Post Blog by Admin Ends
 
-//Post Campaign by Admin
+//Post New Campaign by Admin
 $Route->add("/new_campaign", function () {
     $Core = new Apps\Core;
     $Template = new Apps\Template;
@@ -352,6 +352,30 @@ $Route->add("/new_doctor", function() {
     $Template->redirect("/admin/pages/new-diary");
 }, 'POST');
 
+//Create New Event
+$Route->add("/new_event", function() {
+    $Core = new Apps\Core;
+    $Template = new Apps\Template;
+
+    $data = $Core->post($_POST);
+
+    $title = $data->title;
+    $startDate = $data->startDate;
+    $endDate = $data->endDate;
+    $venue = $data->venue;
+    $organizer = $data->organizer;
+    $email = $data->email;
+
+    $sql = "INSERT INTO `events`(`title`, `startDate`, `endDate`, `venue`, `organizer`, `email`) VALUES ('{$title}','{$startDate}','{$endDate}','{$venue}','{$organizer}','{$email}')";
+    $eventPosted = mysqli_query($Core->dbCon, $sql);
+
+    if ($eventPosted) {
+        $Template->setError("You have successfully this new Event", "success", "/admin/pages/admin-home");
+        $Template->redirect("/admin/pages/admin-home");
+    }
+    $Template->setError("This Doctor Already Exits in the List", "success", "/admin/pages/admin-home");
+    $Template->redirect("/admin/pages/admin-home");
+}, 'POST');
 
 
 //Update Blog by Admin-Change Images

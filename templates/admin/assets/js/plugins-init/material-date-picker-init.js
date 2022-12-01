@@ -30,4 +30,14 @@
         minDate: new Date()
     });
 
+    $('#min-date-start-event').bootstrapMaterialDatePicker({
+        format: 'YYYY-MM-DD HH:mm',
+        minDate: new Date()
+    });
+
+    $('#min-date-end-event').bootstrapMaterialDatePicker({
+        format: 'YYYY-MM-DD HH:mm',
+        minDate: new Date()
+    });
+
 })(jQuery);

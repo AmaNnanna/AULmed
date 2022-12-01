@@ -55,7 +55,7 @@
                         <img src="<?= $assets ?>/img/icon/cn-icon3.png" alt="icon01">
                     </div>
                     <div class="services-content2">
-                        <h5>Office Address</h5>
+                        <h5>Postal Address</h5>
                         <p>531 Northern Parade, Hilsea <br /> Portsmouth Hampshire.</p>
                     </div>
                 </div>

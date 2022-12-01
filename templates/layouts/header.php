@@ -43,7 +43,7 @@
                             <div class="main-menu text-center text-xl-center">
                                 <nav id="mobile-menu" style="display: block;">
                                     <ul>
-                                        <li class="sub"><a href="./pages/health-topics">Health Topics</a></li>
+                                        <li class="sub"><a href="./pages/health-topics">Health</a></li>
                                         <li class="sub"><a href="./pages/stories">Your Doctor's Diary</a></li>
                                         <li class="sub"><a href="./pages/campaigns">Campaigns</a></li>
                                         <li class="sub"><a href="./pages/blog">Blog</a></li>

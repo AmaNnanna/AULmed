@@ -5,13 +5,13 @@
             <div class="col-xl-12 col-lg-12">
                 <div class="breadcrumb-wrap text-left">
                     <div class="breadcrumb-title">
-                        <h2> Events </h2>
+                        <h2> Campaigns </h2>
                         <div class="breadcrumb-wrap">
 
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Events</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Campaigns</li>
                                 </ol>
                             </nav>
                         </div>
@@ -30,9 +30,9 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title center-align text-center mb-50">
-                    <h5>Our Events</h5>
+                    <h5>Our Campaigns</h5>
                     <h2>
-                        Upcoming Events
+                        Upcoming Campaigns
                     </h2>
                 </div>
             </div>

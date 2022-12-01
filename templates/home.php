@@ -108,7 +108,7 @@
                                 mb-50">
 					<h5>Campaigns</h5>
 					<h2>
-						Upcoming Events
+						Upcoming Campaigns
 					</h2>
 				</div>
 			</div>

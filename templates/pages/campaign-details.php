@@ -148,8 +148,3 @@
         </div>
     </section>
     <!-- inner-blog-end -->
-
-
-
-</main>
-<!-- main-area-end -->
