@@ -3,8 +3,8 @@
 use Apps\Template;
 
 //User Login Page
-$Route->add("/visitors/pages/login", function() {
-    
+$Route->add("/visitors/pages/login", function () {
+
     $Core = new Apps\Core;
     $Template = new Apps\Template();
 
@@ -13,12 +13,11 @@ $Route->add("/visitors/pages/login", function() {
     $Template->assign("title", "Users");
 
     $Template->render("visitors.pages.login");
-
 }, 'GET');
 
 //User Registration Page
-$Route->add("/visitors/pages/register", function() {
-    
+$Route->add("/visitors/pages/register", function () {
+
     $Core = new Apps\Core;
     $Template = new Apps\Template();
 
@@ -27,12 +26,11 @@ $Route->add("/visitors/pages/register", function() {
     $Template->assign("title", "Users");
 
     $Template->render("visitors.pages.register");
-
 }, 'GET');
 
 //Other User Pages
-$Route->add("/visitors/pages/{shortname}", function($shortname) {
-    
+$Route->add("/visitors/pages/{shortname}", function ($shortname) {
+
     $Core = new Apps\Core;
     $Template = new Apps\Template("/visitors/pages/login");
 
@@ -41,7 +39,7 @@ $Route->add("/visitors/pages/{shortname}", function($shortname) {
 
     $Template->assign("haspage", true);
     $Template->assign("menukey", "$shortname");
-    
+
     if ($shortname == "visitors-home") {
         $Template->assign("title", "Homepage");
     } else {
@@ -53,11 +51,10 @@ $Route->add("/visitors/pages/{shortname}", function($shortname) {
     $userSql = "SELECT * FROM `users` WHERE id='{$accid}'";
     $uerResult = mysqli_query($Core->dbCon, $userSql);
     $User = mysqli_fetch_object($uerResult);
-   
+
     $Template->assign("User", $User);
 
     $Template->render("visitors.pages.{$shortname}");
-
 }, 'GET');
 
 //Create New User
@@ -75,13 +72,12 @@ $Route->add("/user_register", function () {
     $user = (int)$Core->CreateNewUser($fullName, $email, $password);
 
     if ($user) {
-        $Templet->setError ("Your Account was Created Successfully. Please Login", "success", "/visitors/pages/login");
+        $Templet->setError("Your Account was Created Successfully. Please Login", "success", "/visitors/pages/login");
         $Templet->redirect("/visitors/pages/login");
     }
 
     $Templet->setError("The email you entered is already in Use.", "success", "/visitors/pages/register");
     $Templet->redirect("/visitors/pages/register");
-
 }, 'POST');
 
 //Create New User Testimonial
@@ -96,7 +92,7 @@ $Route->add("/review", function () {
     $email = $data->email;
     $jobDescription = $data->jobDescription;
     $review = $data->review;
-    $approved= $data->approved;
+    $approved = $data->approved;
 
     $picture = "";
 
@@ -106,7 +102,7 @@ $Route->add("/review", function () {
     $Uploader = new \Verot\Upload\Upload($_FILES['picture']);
 
     if ($Uploader->uploaded) {
-        $name = md5(time() . mt_rand(1,10000));
+        $name = md5(time() . mt_rand(1, 10000));
         $Uploader->file_new_name_body = $name;
         $Uploader->process("./_store/revie_pictures/");
 
@@ -123,18 +119,17 @@ $Route->add("/review", function () {
     $review = mysqli_query($Core->dbCon, $reviewSql);
 
     if ($review) {
-        $Templet->setError ("Your review has been sent, pending admin approval.", "success", "/visitors/pages/home");
+        $Templet->setError("Your review has been sent, pending admin approval.", "success", "/visitors/pages/home");
         $Templet->redirect("/visitors/pages/home");
     }
 
     $Templet->setError("Something went wrong, and your review did not send.", "success", "/visitors/pages/homw");
     $Templet->redirect("/visitors/pages/homw");
-
 }, 'POST');
 
 //Create User Login
-$Route->add("/user_login", function() {
-    
+$Route->add("/user_login", function () {
+
     $Core = new Apps\Core;
     $Template = new Apps\Template;
 
@@ -147,9 +142,8 @@ $Route->add("/user_login", function() {
 
     if ($userLogin->id) {
         $Template->authorize($userLogin->id);
-        $Template->redirect("/visitors/pages/home");
+        $Template->redirect("/");
     }
-
 }, 'POST');
 
 
@@ -157,7 +151,6 @@ $Route->add("/user_login", function() {
 $Route->add("/user/logout", function () {
     $Template = new Apps\Template;
     $Template->expire();
-    $Template->redirect("/visitors/pages/login");
+    $Template->redirect("/");
 }, 'GET');
 //Logout sessions ends//
-

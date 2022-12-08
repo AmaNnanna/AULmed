@@ -49,22 +49,35 @@
                         </div>
                     </div>
 
+
+                    <?php
+                    $sql = "SELECT * FROM campaigns ORDER BY id DESC";
+                    $Campaigns = mysqli_query($Core->dbCon, $sql);
+                    $Template->assign("Campaigns", $Campaigns);
+                    ?>
+
                     <section id="custom_html-5" class="widget_text widget widget_custom_html mb-50">
                         <h2 class="widget-title">Share</h2>
                         <div class="textwidget custom-html-widget">
-                            <div class="widget-social">
-                                <a href="http://www.facebook.com/sharer.php?u=https://aulmed.org/pages/<?= $CampaignDetails->id ?>/campaign-details&text=<?= $CampaignDetails->campaignTopic ?>" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                                <a href="https://twitter.com/share?url=https://aulmed.org/pages/1/campaign-details&text=<?= $CampaignDetails->campaignTopic ?>" target="_blank"><i class="fab fa-twitter"></i></a>
-                                <a href="http://www.linkedin.com/shareArticle?mini=true&url=https://aulmed.org/pages/1/campaign-details&text=<?= $CampaignDetails->campaignTopic ?>" target="_blank"><i class="fab fa-linkedin"></i></a>
-                                <a href="#"><i class="fab fa-instagram"></i></a>
-                                <a href="#"><i class="fab fa-whatsapp"></i></a>
-                                <a href="mailto:?Subject=<?= $CampaignDetails->campaignTopic ?>&Body=<?= $CampaignDetails->campaignDetails ?> https://aulmed.org/pages/1/campaign-details"><i class="fa fa-envelope"></i></a>
-                            </div>
+                            <?php while ($Campaign = mysqli_fetch_object($Campaigns)) : ?>
+                                <div class="widget-social">
+                                    <a href="http://www.facebook.com/sharer.php?u=https://aulmed.org/pages/<?= $Campaign->id ?>/campaign-details&text=<?= $Campaign->campaignTopic ?>" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="https://twitter.com/share?url=https://aulmed.org/pages/1/campaign-details&text=<?= $Campaign->campaignTopic ?>" target="_blank"><i class="fab fa-twitter"></i></a>
+                                    <a href="http://www.linkedin.com/shareArticle?mini=true&url=https://aulmed.org/pages/<?= $Campaign->id ?>/campaign-details&text=<?= $Campaign->campaignTopic ?>" target="_blank"><i class="fab fa-linkedin"></i></a>
+                                    <a href="https://api.whatsapp.com/send?&text=<?= $Campaign->campaignTopic ?>%20https://aulmed.org/pages/<?= $Campaign->id ?>/campaign-details" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                                    <a href="mailto:?Subject=<?= $Campaign->campaignTopic ?>&Body=https://aulmed.org/pages/<?= $Campaign->id ?>/campaign-details <?= $Campaign->campaignTopic ?>" target="_blank"><i class="fa fa-envelope"></i></a>
+                                </div>
+                            <?php endwhile; ?>
                         </div>
                     </section>
                 </div>
 
-
+                
+                <?php
+                    $sqlEvents = "SELECT * FROM events ORDER BY id DESC LIMIT 2";
+                    $Events = mysqli_query($Core->dbCon, $sqlEvents);
+                    $Template->assign("Events", $Events);
+                ?>
                 <!-- #right side -->
                 <div class="col-sm-12 col-md-12 col-lg-4">
                     <aside class="sidebar-widget">

@@ -1,7 +1,7 @@
     
 <?php
 
-define('DOT', '.');
+define ('DOT', '.');
 require_once(DOT . "/bootstrap.php");
 require_once(DOT . "/_public/adminroutes.php");
 require_once(DOT . "/_public/visitorsroutes.php");

@@ -52,7 +52,7 @@
                 <li>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">AULmed</li>
-                        <li class="breadcrumb-item">Welcome- <span class="text-primary"><?= " {$User->fullName}" ?></span></li>
+                        <li class="breadcrumb-item">Welcome- <span class="text-primary"><?= "{$User->fullName}" ?></span></li>
                     </ol>
                 </li>
             </ul>

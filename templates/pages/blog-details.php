@@ -73,9 +73,31 @@
 
                             <a class="btn ss-btn mt-30" href="/pages/blog">Go Back to Blogs</a>
                         </div>
-
                     </div>
+
+                    <?php
+                    $sql = "SELECT * FROM blog_posts ORDER BY id DESC";
+                    $BlogPosts = mysqli_query($Core->dbCon, $sql);
+                    $Template->assign("Campaigns", $BlogPosts);
+                    ?>
+
+                    <section id="custom_html-5" class="widget_text widget widget_custom_html mb-50">
+                        <h2 class="widget-title">Share</h2>
+                        <div class="textwidget custom-html-widget">
+                            <?php while ($BlogPosts = mysqli_fetch_object($BlogPosts)) : ?>
+                                <div class="widget-social">
+                                    <a href="http://www.facebook.com/sharer.php?u=https://aulmed.org/pages/<?= $BlogPost->id ?>/blog-details&text=<?= $BlogPost->heading ?>" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="https://twitter.com/share?url=https://aulmed.org/pages/1/blog-details&text=<?= $BlogPost->heading ?>" target="_blank"><i class="fab fa-twitter"></i></a>
+                                    <a href="http://www.linkedin.com/shareArticle?mini=true&url=https://aulmed.org/pages/<?= $BlogPost->id ?>/blog-details&text=<?= $BlogPost->heading ?>" target="_blank"><i class="fab fa-linkedin"></i></a>
+                                    <a href="https://api.whatsapp.com/send?&text=<?= $BlogPost->heading ?>%20https://aulmed.org/pages/<?= $BlogPost->id ?>/blog-details" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                                    <a href="mailto:?Subject=<?= $BlogPost->heading ?>&Body=https://aulmed.org/pages/<?= $BlogPost->id ?>/blog-details <?= $BlogPost->heading ?>" target="_blank"><i class="fa fa-envelope"></i></a>
+                                </div>
+                            <?php endwhile; ?>
+                        </div>
+                    </section>
                 </div>
+
+
                 <!-- #right side -->
                 <div class="col-sm-12 col-md-12 col-lg-4">
                     <aside class="sidebar-widget">

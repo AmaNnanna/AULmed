@@ -11,35 +11,35 @@
     <link rel="shortcut icon" type="image/x-icon" href="<?= $assets ?>/img/favicon.ico">
     <!-- Place favicon.ico in the root directory -->
 
-    
-    
-    <?php if($haspage): ?>
-    
-    <title>AUL Medical Education</title>
-    <meta name="description" content="We are a medical and healthcare teaching platform. We use people's real stories, thought contributions from experts, and video explainers to teach our audience how to take care of themselves">
 
-    <meta name="twitter:title" content="Sammy the Shark" />
-    <meta name="twitter:description" content="Senior Selachimorpha at DigitalOcean" />
-    <meta name="twitter:image" content="https://html.sammy-codes.com/images/large-profile.jpg" />
 
-    <meta property="og:title" content="">
-<meta property="og:site_name" content="">
-<meta property="og:url" content="">
-<meta property="og:description" content="">
-<meta property="og:type" content="site">
-<meta property="og:image" content="<?php $_REQUEST[""] ?>">
+    <?php if ($haspage) : ?>
 
-    <?php else: ?>
+        <title>AUL Medical Education</title>
+        <meta name="description" content="We are a medical and healthcare teaching platform. We use people's real stories, thought contributions from experts, and video explainers to teach our audience how to take care of themselves">
 
-    <title>AUL Medical Education</title>
-    <meta name="description" content="We are a medical and healthcare teaching platform. We use people's real stories, thought contributions from experts, and video explainers to teach our audience how to take care of themselves">
-    
-    <meta name="twitter:title" content="Sammy the Shark" />
-    <meta name="twitter:description" content="Senior Selachimorpha at DigitalOcean" />
-    <meta name="twitter:image" content="https://html.sammy-codes.com/images/large-profile.jpg" />
+        <meta name="twitter:title" content="Sammy the Shark" />
+        <meta name="twitter:description" content="Senior Selachimorpha at DigitalOcean" />
+        <meta name="twitter:image" content="https://html.sammy-codes.com/images/large-profile.jpg" />
+
+        <meta property="og:title" content="">
+        <meta property="og:site_name" content="">
+        <meta property="og:url" content="">
+        <meta property="og:description" content="">
+        <meta property="og:type" content="site">
+        <meta property="og:image" content="<?php $_REQUEST[""] ?>">
+
+    <?php else : ?>
+
+        <title>AUL Medical Education</title>
+        <meta name="description" content="We are a medical and healthcare teaching platform. We use people's real stories, thought contributions from experts, and video explainers to teach our audience how to take care of themselves">
+
+        <meta name="twitter:title" content="Sammy the Shark" />
+        <meta name="twitter:description" content="Senior Selachimorpha at DigitalOcean" />
+        <meta name="twitter:image" content="https://html.sammy-codes.com/images/large-profile.jpg" />
 
     <?php endif; ?>
-    
+
     <!-- CSS here-->
     <link rel="stylesheet" href="<?= $assets ?>/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?= $assets ?>/css/animate.min.css">
@@ -83,9 +83,32 @@
                                         <li class="sub"><a href="./pages/blog">Blog</a></li>
                                         <li class="sub"><a href="./pages/about-us">About Us</a></li>
 
-                                        <li class="sub">
-                                            <a class="btn ss-btn py-3 px-4 mx-3 text-white" href="./visitors/pages/login">Login</a>
-                                        </li>
+                                        <?php
+                                            $accid = $Template->storage("accid");
+
+                                            $userSql = "SELECT * FROM `users` WHERE id='{$accid}'";
+                                            $uerResult = mysqli_query($Core->dbCon, $userSql);
+                                            $User = mysqli_fetch_object($uerResult);
+                                        
+                                            $Template->assign("User", $User);
+                                        ?>
+
+                                        <?php if ($Template->storage("accid")) : ?>
+                                            
+                                            <li class="sub">
+                                                <h6 class="text-danger">Hi <?= $User->fullName ?>!</h6>
+                                                <ul>
+                                                    <li><a class="text-center" href="/visitors/pages/home">Go to Dashboard</a></li>
+                                                    <li><a class="btn ss-btn py-3 px-4 mx-3 text-white text-center" href="/user/logout">Logout</a></li>
+                                                </ul>
+                                                
+
+                                            </li>
+                                        <?php else : ?>
+                                            <li class="sub">
+                                                <a class="btn ss-btn py-3 px-4 mx-3 text-white text-center" href="./visitors/pages/login">Login</a>
+                                            </li>
+                                        <?php endif; ?>
                                     </ul>
                                 </nav>
                             </div>

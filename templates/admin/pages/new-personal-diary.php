@@ -39,8 +39,10 @@ include_once 'sidebar.php';
                                 <div class="form-group">
                                     <label for="doctor_id" class="text-black font-w600">Please select your name from this list<span class="required" style="color: red;">*</span></label>
                                     <select class="form-control" name="doctor_id">
-                                        <option class="form-control" value="value">Value 1</option>
-                                        <option class="form-control" value="value">Value 2</option>
+                                        <?php $doctors = mysqli_query($Core->dbCon, "SELECT * FROM `doctors`");
+                                        while ($doctor = mysqli_fetch_object($doctors)) : ?>
+                                            <option class="form-control" value="<?= $doctor->id ?>"><?= $doctor->name ?></option>
+                                        <?php endwhile; ?>
                                     </select>
                                 </div>
                             </div>
