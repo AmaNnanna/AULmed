@@ -135,24 +135,61 @@ $('.featured-courses-active').slick({
 	infinite: true,
 	arrows: false,
 	autoplay:true,
-  autoplaySpeed:1500,
+  	autoplaySpeed:5000,
 	speed: 1000,
-	slidesToShow: 5,
+	slidesToShow: 1,
 	slidesToScroll: 1,
 	responsive: [
 		{
 			breakpoint: 1200,
 			settings: {
-				slidesToShow: 3,
+				slidesToShow: 1,
 				slidesToScroll: 1,
 				infinite: true,
-				dots: true
+				dots: false
 			}
 		},
 		{
 			breakpoint: 992,
 			settings: {
-				slidesToShow: 2,
+				slidesToShow: 1,
+				slidesToScroll: 1
+			}
+		},
+		{
+			breakpoint: 767,
+			settings: {
+				slidesToShow: 1,
+				slidesToScroll: 1
+			}
+		}
+	]
+});
+
+// events-active
+$('.events-active').slick({
+	dots: false,
+	infinite: true,
+	arrows: false,
+	autoplay:true,
+  	autoplaySpeed:5000,
+	speed: 1000,
+	slidesToShow: 1,
+	slidesToScroll: 1,
+	responsive: [
+		{
+			breakpoint: 1200,
+			settings: {
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				infinite: true,
+				dots: false
+			}
+		},
+		{
+			breakpoint: 992,
+			settings: {
+				slidesToShow: 1,
 				slidesToScroll: 1
 			}
 		},
@@ -295,6 +332,8 @@ $('.testimonial-active').slick({
 	dots: true,
 	infinite: true,
 	arrows: false,
+	autoplay:true,
+  	autoplaySpeed:5000,
 	speed: 1000,
 	slidesToShow:1,
 	slidesToScroll: 1,

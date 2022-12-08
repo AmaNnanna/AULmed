@@ -7,7 +7,11 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="/new_event" method="POST">
+                <form action="/new_event" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="campaignImage" class="text-black font-w600">Upload an Image for this Campaign</label>
+                        <input type="file" class="form-control" name="eventImage">
+                    </div>
                     <div class="form-group">
                         <label class="text-black font-w500">Event Title</label>
                         <input type="text" class="form-control" name="title" required />
@@ -25,6 +29,10 @@
                         <input type="text" class="form-control" name="venue">
                     </div>
                     <div class="form-group">
+                        <label class="text-black font-w500">Short Event Description</label>
+                        <input type="text" class="form-control" name="eventDescription">
+                    </div>
+                    <div class="form-group">
                         <label class="text-black font-w500">Event Organizer</label>
                         <input type="text" class="form-control" name="organizer">
                     </div>
@@ -33,7 +41,7 @@
                         <input type="email" class="form-control" name="email">
                     </div>
                     <div class="form-group">
-                        <button type="button" class="btn btn-primary">Create</button>
+                        <button type="submit" class="btn btn-primary">Create Event</button>
                     </div>
                 </form>
             </div>

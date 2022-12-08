@@ -6,13 +6,41 @@
     <base href="<?= domain ?>">
 
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>AUL Medical Education</title>
-    <meta name="description" content="We are a medical and healthcare teaching platform. We use people's real stories, thought contributions from experts, and video explainers to teach our audience how to take care of themselves">
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="<?= $assets ?>/img/favicon.ico">
     <!-- Place favicon.ico in the root directory -->
 
-    <!-- CSS here -->
+    
+    
+    <?php if($haspage): ?>
+    
+    <title>AUL Medical Education</title>
+    <meta name="description" content="We are a medical and healthcare teaching platform. We use people's real stories, thought contributions from experts, and video explainers to teach our audience how to take care of themselves">
+
+    <meta name="twitter:title" content="Sammy the Shark" />
+    <meta name="twitter:description" content="Senior Selachimorpha at DigitalOcean" />
+    <meta name="twitter:image" content="https://html.sammy-codes.com/images/large-profile.jpg" />
+
+    <meta property="og:title" content="">
+<meta property="og:site_name" content="">
+<meta property="og:url" content="">
+<meta property="og:description" content="">
+<meta property="og:type" content="site">
+<meta property="og:image" content="<?php $_REQUEST[""] ?>">
+
+    <?php else: ?>
+
+    <title>AUL Medical Education</title>
+    <meta name="description" content="We are a medical and healthcare teaching platform. We use people's real stories, thought contributions from experts, and video explainers to teach our audience how to take care of themselves">
+    
+    <meta name="twitter:title" content="Sammy the Shark" />
+    <meta name="twitter:description" content="Senior Selachimorpha at DigitalOcean" />
+    <meta name="twitter:image" content="https://html.sammy-codes.com/images/large-profile.jpg" />
+
+    <?php endif; ?>
+    
+    <!-- CSS here-->
     <link rel="stylesheet" href="<?= $assets ?>/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?= $assets ?>/css/animate.min.css">
     <link rel="stylesheet" href="<?= $assets ?>/css/magnific-popup.css">
@@ -43,7 +71,13 @@
                             <div class="main-menu text-center text-xl-center">
                                 <nav id="mobile-menu" style="display: block;">
                                     <ul>
-                                        <li class="sub"><a href="./pages/health-topics">Health</a></li>
+                                        <li class="sub">
+                                            <a href="./pages/health-topics">Health</a>
+                                            <ul>
+                                                <li><a href="./pages/health-topics">Health Guide</a></li>
+                                                <li><a href="./pages/videos">Online Clases</a></li>
+                                            </ul>
+                                        </li>
                                         <li class="sub"><a href="./pages/stories">Your Doctor's Diary</a></li>
                                         <li class="sub"><a href="./pages/campaigns">Campaigns</a></li>
                                         <li class="sub"><a href="./pages/blog">Blog</a></li>

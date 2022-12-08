@@ -21,11 +21,15 @@ $Route->add('/', function () {
     $Template->assign("haspage", false);
     $Template->assign("menukey", "home");
 
-    $sqlBlog = "SELECT * FROM blog_posts ORDER BY id DESC";
+    $sqlEvents = "SELECT * FROM events ORDER BY id DESC LIMIT 4";
+    $Events = mysqli_query($Core->dbCon, $sqlEvents);
+    $Template->assign("Events", $Events);
+
+    $sqlBlog = "SELECT * FROM blog_posts ORDER BY id DESC LIMIT 6";
     $BlogPosts = mysqli_query($Core->dbCon, $sqlBlog);
     $Template->assign("BlogPosts", $BlogPosts);
 
-    $sqlCampaign = "SELECT * FROM campaigns ORDER BY id DESC";
+    $sqlCampaign = "SELECT * FROM campaigns ORDER BY id DESC LIMIT 6";
     $Campaigns = mysqli_query($Core->dbCon, $sqlCampaign);
     $Template->assign("Campaigns", $Campaigns);
 
@@ -34,6 +38,42 @@ $Route->add('/', function () {
     $Template->assign("Reviews", $Reviews);
 
     $Template->render("home");
+}, 'GET');
+
+//Videos page//
+$Route->add("/pages/videos", function () {
+
+    $Core = new Apps\Core;
+    $Template = new Apps\Template;
+
+    $Template->assign("haspage", true);
+    $Template->assign("menukey", "Videos");
+
+    $Template->render("visitors.pages.login");
+}, 'GET');
+
+//Get Details of Each Event
+$Route->add("/pages/{id}/event-details", function ($id) {
+
+    $Core = new Apps\Core;
+    $Template = new Apps\Template;
+
+    $Template->addheader("layouts.header");
+    $Template->addfooter("layouts.footer");
+
+    $Template->assign("haspage", true);
+    $Template->assign("menukey", "pages.event-details");
+
+    $sql = "SELECT * FROM events WHERE id='$id'";
+    $full_event = mysqli_query($Core->dbCon, $sql);
+    $EventDetails = mysqli_fetch_object($full_event);
+
+    $Template->assign("title", $EventDetails->title);
+    $Template->assign("description", substr($EventDetails->description,120) );
+
+    $Template->assign("EventDetails", $EventDetails);
+
+    $Template->render("pages.event-details");
 }, 'GET');
 
 //Get Blog's Pages//

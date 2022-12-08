@@ -21,6 +21,7 @@
 
                     <ul aria-expanded="false">
                         <li><a href="/visitors/pages/testimonial">Write a New Review</a></li>
+                        <li><a href="/visitors/pages/new-dairy">Create New Doctor's Dairy</a></li>
                     </ul>
                     </li>
                 </ul>

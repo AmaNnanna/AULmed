@@ -27,19 +27,38 @@
 				</div>
 			</div>
 		</div>
-
-
 	</div>
-
-
 </section>
 <!-- slider-area-end -->
 
+<!-- events-slide-area -->
+<section id="courses" class="courses-area fix">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="section-title center-align text-center">
+					<h4>Upcoming Events</h4>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<?php while ($newEvent = mysqli_fetch_object($Events)) : ?>
+				<div class="col-xl-12 col-lg-12 col-md-12 center-align text-center">
+					<div class="featured-courses-active">
+						<div class="box-courses text">
+							<h5><a href="/pages/<?= $newEvent->id ?>/event-details"><?= $newEvent->title ?> {Click}</a></h5>
+						</div>
+					</div>
+				</div>
+			<?php endwhile; ?>
+		</div>
+	</div>
+</section>
+<!-- events-slide-area-end -->
+
 <!-- blog-area -->
-<section class="testimonial-area pt-120 pb-120" style="
-                background-image: url(<?= $assets ?>/img/testimonial/test-bg-aliments.png);
-                background-repeat: no-repeat; background-position: center;
-                background-color: #fff7f5;">
+<section class="testimonial-area pt-120 pb-120" style="background-image: url(<?= $assets ?>/img/testimonial/test-bg-aliments.png); background-repeat: no-repeat; background-position: center; background-color: #fff7f5;">
 	<div class="container">
 		<div class="row align-items-center">
 			<div class="col-lg-12">
@@ -159,7 +178,7 @@
 					<h3>
 						See What Our Users Are Saying About <br>Our Informative Contents
 					</h3>
-					<p class="pt-15">"We all need people who will give us feedback. That's how we improve." <br/> Bill Gates. </p>
+					<p class="pt-15">"We all need people who will give us feedback. That's how we improve." <br /> Bill Gates. </p>
 					<p class="pt-15">Here are what those benefiting from our website are saying. You too can enjoy the value we provide at no cost.</p>
 				</div>
 
@@ -167,7 +186,7 @@
 
 			<div class="col-lg-6">
 				<div class="testimonial-active">
-						<?php while ($Review = mysqli_fetch_object($Reviews)) : ?>
+					<?php while ($Review = mysqli_fetch_object($Reviews)) : ?>
 						<?php if ($Review->approved == 1) : ?>
 							<div class="single-testimonial">
 								<div class="testi-author">
@@ -183,9 +202,9 @@
 								<p><?= $Review->review ?></p>
 							</div>
 						<?php endif; ?>
-						<?php endwhile; ?>
-					</div>
+					<?php endwhile; ?>
 				</div>
+			</div>
 		</div>
 	</div>
 </section>
@@ -196,8 +215,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-lg-12">
-				<div class="section-title center-align text-center
-                                mb-50">
+				<div class="section-title center-align text-center mb-50">
 					<h5>Best Courses</h5>
 					<h2>
 						Featured Courses

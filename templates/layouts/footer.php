@@ -23,9 +23,9 @@
 								</li>
 								<li><i class="icon fal fa-envelope"></i>
 									<span>
-										<a href="info@aulmed.org">info@aulmed.org</a>
+										<a href="mailto:info@aulmed.org">info@aulmed.org</a>
 										<br>
-										<a href="contact@aulmed.org">contact@aulmed.org</a>
+										<a href="mailto:contact@aulmed.org">contact@aulmed.org</a>
 									</span>
 								</li>
 								<li>

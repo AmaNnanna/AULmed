@@ -352,6 +352,49 @@ $Route->add("/new_doctor", function() {
     $Template->redirect("/admin/pages/new-diary");
 }, 'POST');
 
+//Create New Slide
+$Route->add("/new_slide", function() {
+    $Core = new Apps\Core;
+    $Template = new Apps\Template;
+
+    $data = $Core->post($_POST);
+
+    $slideImage = "";
+
+    $slideTitle = $data->slideTitle;
+    $videoLink = $data->videoLink;
+    $doctor_id = $data->doctor_id;
+    $slideDescription = $data->slideDescription;
+
+    //Uploading Event Pictures
+    $slideImage_path_to_db = "";
+
+    $Uploader = new \Verot\Upload\Upload($_FILES['slideImage']);
+
+    if ($Uploader->uploaded) {
+        $name = md5(time() . mt_rand(1, 10000));
+        $Uploader->file_new_name_body = $name;
+        $Uploader->process("./_store/event_pictures/");
+
+        if ($Uploader->processed) {
+            $slideImage_path_to_db = $Uploader->file_dst_pathname;
+        } else {
+        }
+    }
+
+    $slideImage = $slideImage_path_to_db;
+    
+    $sql = "INSERT INTO `slides`(`slideImage`, `slideTitle`, `videoLink`, `doctor_id`, `slideDescription`) VALUES ('{$slideImage}', '{$slideTitle}', '{$videoLink}', '{$doctor_id}', '{$slideDescription}')";
+    $eventPosted = mysqli_query($Core->dbCon, $sql);
+
+    if ($eventPosted) {
+        $Template->setError("You have successfully added a new Dairy", "success", "/admin/pages/admin-home");
+        $Template->redirect("/admin/pages/admin-home");
+    }
+    $Template->setError("This Dairy was unable to create, please try again", "success", "/admin/pages/admin-home");
+    $Template->redirect("/admin/pages/admin-home");
+}, 'POST');
+
 //Create New Event
 $Route->add("/new_event", function() {
     $Core = new Apps\Core;
@@ -359,21 +402,42 @@ $Route->add("/new_event", function() {
 
     $data = $Core->post($_POST);
 
+    $eventImage = "";
+
     $title = $data->title;
     $startDate = $data->startDate;
     $endDate = $data->endDate;
     $venue = $data->venue;
+    $eventDescription = $data->eventDescription;
     $organizer = $data->organizer;
     $email = $data->email;
 
-    $sql = "INSERT INTO `events`(`title`, `startDate`, `endDate`, `venue`, `organizer`, `email`) VALUES ('{$title}','{$startDate}','{$endDate}','{$venue}','{$organizer}','{$email}')";
+    //Uploading Event Pictures
+    $eventImage_path_to_db = "";
+
+    $Uploader = new \Verot\Upload\Upload($_FILES['eventImage']);
+
+    if ($Uploader->uploaded) {
+        $name = md5(time() . mt_rand(1, 10000));
+        $Uploader->file_new_name_body = $name;
+        $Uploader->process("./_store/event_pictures/");
+
+        if ($Uploader->processed) {
+            $eventImage_path_to_db = $Uploader->file_dst_pathname;
+        } else {
+        }
+    }
+
+    $eventImage = $eventImage_path_to_db;
+    
+    $sql = "INSERT INTO `events`(`eventImage`, `title`, `startDate`, `endDate`, `venue`, `eventDescription`, `organizer`, `email`) VALUES ('{$eventImage}', '{$title}', '{$startDate}', '{$endDate}', '{$venue}', '{$eventDescription}' '{$organizer}', '{$email}')";
     $eventPosted = mysqli_query($Core->dbCon, $sql);
 
     if ($eventPosted) {
-        $Template->setError("You have successfully this new Event", "success", "/admin/pages/admin-home");
+        $Template->setError("You have successfully added this new Event", "success", "/admin/pages/admin-home");
         $Template->redirect("/admin/pages/admin-home");
     }
-    $Template->setError("This Doctor Already Exits in the List", "success", "/admin/pages/admin-home");
+    $Template->setError("This Event failed to create, please try again.", "success", "/admin/pages/admin-home");
     $Template->redirect("/admin/pages/admin-home");
 }, 'POST');
 

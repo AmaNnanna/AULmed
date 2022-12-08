@@ -13,6 +13,7 @@
                 <li><a href="/admin/pages/new-blog">Post a New Blog</a></li>
                 <li><a href="/admin/pages/new-campaign">Add a New Campaign</a></li>
                 <li><a href="/admin/pages/all-reviews">View All Reviews</a></li>
+                <li><a href="/admin/pages/new-diary">Add New Dairy</a></li>
             </ul>
             </li>
         </ul>
