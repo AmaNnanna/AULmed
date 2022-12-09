@@ -72,120 +72,61 @@
                     </section>
                 </div>
 
-                
+
                 <?php
-                    $sqlEvents = "SELECT * FROM events ORDER BY id DESC LIMIT 2";
-                    $Events = mysqli_query($Core->dbCon, $sqlEvents);
-                    $Template->assign("Events", $Events);
+                $sqlEvents = "SELECT * FROM events ORDER BY id DESC LIMIT 3";
+                $Events = mysqli_query($Core->dbCon, $sqlEvents);
+                $Template->assign("Events", $Events);
                 ?>
                 <!-- #right side -->
                 <div class="col-sm-12 col-md-12 col-lg-4">
                     <aside class="sidebar-widget">
-                        <section class="widget widget_search">
-                            <div class="course-widget-price">
-                                <h2 class="widget-title">Event Features</h2>
-                                <ul>
-                                    <li>
-                                        <i class="fal fa-calendar-alt"></i>
-                                        <span>Start Date</span>
-                                        <span class="time">May 29, 2016</span>
-                                    </li>
-                                    <li>
-                                        <i class="fal fa-clock"></i>
-                                        <span>Time</span>
-                                        <span class="time">08:30am</span>
-                                    </li>
-                                    <li>
-                                        <i class="fal fa-loveseat"></i>
-                                        <span>Seat</span>
-                                        <span class="time">220</span>
-                                    </li>
-                                    <li>
-                                        <i class="icon fal
-                                                    fa-map-marker-check"></i>
-                                        <span>Place</span>
-                                        <span class="time">Ontario,CA</span>
-                                    </li>
-                                    <li>
-                                        <i class="fal fa-plus-hexagon"></i>
-                                        <span>Organizer</span>
-                                        <span class="time">Roboto Dos</span>
-                                    </li>
-                                    <li>
-                                        <i class="icon fal fa-phone"></i>
-                                        <span>Phone</span>
-                                        <span class="time">+1 (705) 210
-                                            1786</span>
-                                    </li>
-                                    <li>
-                                        <i class="icon fal fa-envelope"></i>
-                                        <span>Email</span>
-                                        <span class="time">email@example.com</span>
-                                    </li>
-                                    <li>
-                                        <i class="fal fa-user"></i>
-                                        <span>Website</span>
-                                        <span class="time">www.example.com</span>
-                                    </li>
-                                </ul>
+                        <?php while ($Event = mysqli_fetch_object($Events)) : ?>
+                            <section class="widget widget_search">
+                                <div class="course-widget-price">
+                                    <h2 class="widget-title"><?= $Event->title ?></h2>
+                                    <ul>
+                                        <li>
+                                            <i class="fal fa-calendar-alt"></i>
+                                            <span>Start Date</span>
+                                            <span class="time"><?= date("l, jS M. Y", strtotime($Event->startDate)) ?></span>
+                                        </li>
+                                        <li>
+                                            <i class="fal fa-clock"></i>
+                                            <span>Time</span>
+                                            <span class="time"><?= date("g:ia", strtotime($Event->startDate)) ?></span>
+                                        </li>
+                                        <li>
+                                            <i class="fal fa-calendar-alt"></i>
+                                            <span>End Date</span>
+                                            <span class="time"><?= date("l, jS M. Y", strtotime($Event->endDate)) ?></span>
+                                        </li>
+                                        <li>
+                                            <i class="fal fa-clock"></i>
+                                            <span>Time</span>
+                                            <span class="time"><?= date("g:ia", strtotime($Event->endDate)) ?></span>
+                                        </li>
+                                        <li>
+                                            <i class="icon fal fa-map-marker-check"></i>
+                                            <span>Venue</span>
+                                            <span class="time"><?= $Event->venue ?></span>
+                                        </li>
+                                        <li>
+                                            <i class="fal fa-plus-hexagon"></i>
+                                            <span>Organizer</span>
+                                            <span class="time"><?= $Event->organizer ?></span>
+                                        </li>
+                                        <li>
+                                            <i class="icon fal fa-envelope"></i>
+                                            <span>Email</span>
+                                            <span class="time"><?= $Event->email ?></span>
+                                        </li>
+                                    </ul>
 
-                                <a class="btn ss-btn mt-30" href="#">Buy
-                                    Ticket</a>
-                            </div>
-                        </section>
-
-                        <section class="widget widget_search">
-                            <div class="course-widget-price">
-                                <h2 class="widget-title">Event Features</h2>
-                                <ul>
-                                    <li>
-                                        <i class="fal fa-calendar-alt"></i>
-                                        <span>Start Date</span>
-                                        <span class="time">May 29, 2016</span>
-                                    </li>
-                                    <li>
-                                        <i class="fal fa-clock"></i>
-                                        <span>Time</span>
-                                        <span class="time">08:30am</span>
-                                    </li>
-                                    <li>
-                                        <i class="fal fa-loveseat"></i>
-                                        <span>Seat</span>
-                                        <span class="time">220</span>
-                                    </li>
-                                    <li>
-                                        <i class="icon fal
-                                                    fa-map-marker-check"></i>
-                                        <span>Place</span>
-                                        <span class="time">Ontario,CA</span>
-                                    </li>
-                                    <li>
-                                        <i class="fal fa-plus-hexagon"></i>
-                                        <span>Organizer</span>
-                                        <span class="time">Roboto Dos</span>
-                                    </li>
-                                    <li>
-                                        <i class="icon fal fa-phone"></i>
-                                        <span>Phone</span>
-                                        <span class="time">+1 (705) 210
-                                            1786</span>
-                                    </li>
-                                    <li>
-                                        <i class="icon fal fa-envelope"></i>
-                                        <span>Email</span>
-                                        <span class="time">email@example.com</span>
-                                    </li>
-                                    <li>
-                                        <i class="fal fa-user"></i>
-                                        <span>Website</span>
-                                        <span class="time">www.example.com</span>
-                                    </li>
-                                </ul>
-
-                                <a class="btn ss-btn mt-30" href="#">Buy
-                                    Ticket</a>
-                            </div>
-                        </section>
+                                    <a class="btn ss-btn mt-30" href="#">Buy Ticket</a>
+                                </div>
+                            </section>
+                        <?php endwhile; ?>
                     </aside>
                 </div>
                 <!-- #right side end -->
