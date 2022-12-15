@@ -29,7 +29,7 @@ include_once 'sidebar.php';
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label for="slideTitle" class="text-black font-w600">Set a title for this slider set</label>
+                                    <label for="Title" class="text-black font-w600">Set a title for this slider set</label>
                                     <input type="text" class="form-control" name="Title">
                                 </div>
                             </div>
