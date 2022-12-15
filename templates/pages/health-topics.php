@@ -5,13 +5,13 @@
             <div class="col-xl-12 col-lg-12">
                 <div class="breadcrumb-wrap text-left">
                     <div class="breadcrumb-title">
-                        <h2>Your Doctor's Diary</h2>
+                        <h2>Health Topics</h2>
                         <div class="breadcrumb-wrap">
 
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="/">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Doctor's Diary</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Health Guide</li>
                                 </ol>
                             </nav>
                         </div>

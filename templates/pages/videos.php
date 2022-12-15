@@ -11,7 +11,7 @@
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="/">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Health Topics</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Online Classes</li>
                                 </ol>
                             </nav>
                         </div>
@@ -24,69 +24,44 @@
 </section>
 <!-- breadcrumb-area-end -->
 
-<!-- services-area -->
-<section id="services" class="services-area pt-120 pb-90 fix" style=" background-image: url(<?= $assets ?>/img/bg/blog-bg-aliments.png); background-repeat: no-repeat; background-position: center center;background-attachment: fixed;">
+<!-- video-area -->
+<section class="shop-area pt-120 pb-120 p-relative " style=" background-image: url(<?= $assets ?>/img/bg/blog-bg-aliments.png); background-repeat: no-repeat; background-position: center center;background-attachment: fixed;">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section-title center-align text-center mb-50">
-                    <h5>Health Topics</h5>
-                    <h2>
-                        This Page is Coming Soon. <br />
-                        Get in Touch While You Wait
-                    </h2>
-                </div>
-            </div>
-        </div>
+        <div class="row align-items-center">
+            <div class="col-lg-4 col-md-6">
+                <div class="product couress-box mb-40">
+                    <div class="product__img">
+                        <a href="courses-details.html"><img src="<?= $assets ?>/img/featured-courses/courses-img1.png" alt=""></a>
 
-        <div class="row">
-            <div class="col-lg-4 col-md-12">
-                <div class="services-box mt-0 mb-30 text-center">
-                    <div class="services-icon">
-                        <img src="<?= $assets ?>/img/icon/cn-icon1.png" alt="icon01">
                     </div>
-                    <div class="services-content2">
-                        <h5>Email Address</h5>
-                        <p>contact@aulmed.org</p>
+                    <div class="product__content pt-30">
+                        <ul class="course-meta course-meta2 review style2 clearfix mb-30">
+                            <li class="author">
+                                <div class="text">
+                                    <ul>
+                                        <li>Robto Jone</li>
+                                        <li>Teacher</li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                        <h4 class="pro-title"><a href="courses-details.html">Zero to Hero in Python 3</a></h4>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur accusamus hic ea in autem debitis minima.</p>
+                        <ul class="course-meta desc">
+                            <li>
+                                <h6>YouTube</h6>
+                                <span>Course Source</span>
+                            </li>
+                            <li>
+                                <h6><span class="course-time">7:00 - 10:00</span></h6>
+                                <span> Course Duration</span>
+                            </li>
+                        </ul>
+
                     </div>
                 </div>
-                <div class="services-box mt-0 mb-30 text-center">
-                    <div class="services-icon">
-                        <img src="<?= $assets ?>/img/icon/cn-icon3.png" alt="icon01">
-                    </div>
-                    <div class="services-content2">
-                        <h5>Office Address</h5>
-                        <p>531 Northern Parade, Hilsea <br /> Portsmouth Hampshire.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-8 col-md-12">
-
-                <form action="/contact_page" method="POST" class="contact-form ">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="contact-field p-relative c-name mb-20">
-                                <input type="text" id="firstn" name="fullName" placeholder="Your Full Name" required>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="contact-field p-relative c-subject mb-20">
-                                <input type="email" id="email" name="email" placeholder="Your Eamil Address" required>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="contact-field p-relative c-message mb-45">
-                                <textarea name="message" id="message" cols="30" rows="10" placeholder="Write Us a Message..."></textarea>
-                            </div>
-                            <div class="slider-btn">
-                                <button type="submit" class="btn ss-btn" data-animation="fadeInRight" data-delay=".8s">Send Message</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
             </div>
         </div>
     </div>
 </section>
-<!-- services-area-end -->
+<!-- video-area-end -->

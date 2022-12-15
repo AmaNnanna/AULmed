@@ -123,8 +123,8 @@ $Route->add("/review", function () {
         $Templet->redirect("/visitors/pages/home");
     }
 
-    $Templet->setError("Something went wrong, and your review did not send.", "success", "/visitors/pages/homw");
-    $Templet->redirect("/visitors/pages/homw");
+    $Templet->setError("Something went wrong, and your review did not send.", "success", "/visitors/pages/home");
+    $Templet->redirect("/visitors/pages/home");
 }, 'POST');
 
 //Create User Login
@@ -144,6 +144,8 @@ $Route->add("/user_login", function () {
         $Template->authorize($userLogin->id);
         $Template->redirect("/");
     }
+    $Template->setError("The email or password you entered is incorrect", "success", "/visitors/pages/login");
+    $Template->redirect("/visitors/pages/login");
 }, 'POST');
 
 

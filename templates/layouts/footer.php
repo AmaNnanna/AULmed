@@ -1,3 +1,5 @@
+</main>
+
 <footer class="footer-bg footer-p fix" style=" background-image: url(<?= $assets ?>/img/bg/footer-bg.png); background-repeat: no-repeat; background-position: center;">
 
 	<div class="footer-center  pt-70 pb-40">

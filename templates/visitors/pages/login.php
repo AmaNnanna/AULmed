@@ -29,7 +29,7 @@
                                     <div class="text-center mb-3">
                                         <a href="/"><img src="<?= $adminassets ?>/images/logo-full.png" alt=""></a>
                                     </div>
-                                    <h5><?= $SELF->Toast(); ?></h5>
+                                    <h5 class="text-white"><?= $SELF->Toast(); ?></h5>
                                     <h4 class="text-center mb-4 text-white">Sign in Your Account</h4>
                                     <form action="/user_login" method="POST">
                                         <div class="form-group">

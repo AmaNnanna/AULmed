@@ -1,66 +1,71 @@
-<!--Sidebar start-->
 <?php
 include_once 'sidebar.php';
 ?>
-<!--Sidebar end-->
 
+
+<!--Content body start-->
 <div class="content-body">
+    <!-- row -->
     <div class="container-fluid">
 
+        <!-- Add Event -->
         <?php include_once 'new-event.php'; ?>
 
+        <div class="page-titles">
+            <ul>
+                <li>
+                    <h5><?= $SELF->Toast(); ?></h5>
+                </li>
+                <li>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">AULmed</li>
+                        <li class="breadcrumb-item active"><a href="/admin/pages/admin-home">Admin Page</a></li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
 
-        <div class="col-xl-12">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="comment-reply-title text-primary mb-3" id="reply-title">Add a New Dairy</h4>
-                    <form class="comment-form" id="commentform" action="/new_slide" method="POST" enctype="multipart/form-data">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="slideTitle" class="text-black font-w600">Set a title for the dairy<span class="required" style="color: red;">*</span></label>
-                                    <input type="text" class="form-control" name="slideTitle">
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="slideImage" class="text-black font-w600">Upload an Image for this slide</label>
-                                    <input type="file" class="form-control" name="slideImage">
-                                </div>
-                            </div>
 
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="videoLink" class="text-black font-w600">Paste a video link (if any)</label>
-                                    <input type="text" class="form-control" name="videoLink">
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="doctor_id" class="text-black font-w600">Please select your name from this list<span class="required" style="color: red;">*</span></label>
-                                    <select class="form-control" name="doctor_id">
-                                        <?php $doctors = mysqli_query($Core->dbCon, "SELECT * FROM `doctors`");
-                                        while ($doctor = mysqli_fetch_object($doctors)) : ?>
-                                            <option class="form-control" value="<?= $doctor->id ?>"><?= $doctor->name ?></option>
-                                        <?php endwhile; ?>
-                                    </select>
-                                </div>
-                            </div>
+        <div class="row">
+            <div class="col-xl-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Create an Image Slider Dairy</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">If you prefer to add an image slider content in your Dairy, please use this link.</p>
+                    </div>
+                    <div class="card-footer d-sm-flex justify-content-between align-items-center">
+                        <a href="/admin/pages/post-slide" class="btn btn-primary">Add Your New Dairy</a>
+                    </div>
+                </div>
+            </div>
 
-                            <div class="col-lg-12">
-                                <div class="form-group">
-                                    <label for="slideDescription" class="text-black font-w600">Write a Brief Description for this dairy (200 characters max.)</label>
-                                    <input type="text" class="form-control" name="slideDescription" maxlength="200">
-                                </div>
-                            </div>
+            <div class="col-xl-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Create a Blog Type Dairy</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">If you prefer to add a blog type content in your Dairy, please use this link.</p>
+                    </div>
+                    <div class="card-footer d-sm-flex justify-content-between align-items-center">
+                        <a href="/admin/pages/post-blog" class="btn btn-primary">Add Your New Dairy</a>
+                    </div>
+                </div>
+            </div>
 
-                            <div class="col-lg-12">
-                                <div class="form-group">
-                                    <input type="submit" value="Send this Dairy" class="submit btn btn-primary">
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+            <div class="col-xl-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Create a Video Content</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">If you prefer to add a video link in your Dairy, please use this link.</p>
+                    </div>
+                    <div class="card-footer d-sm-flex justify-content-between align-items-center">
+                        <a href="/admin/pages/post-video" class="btn btn-primary">Add Your New Diary</a>
+                    </div>
                 </div>
             </div>
         </div>

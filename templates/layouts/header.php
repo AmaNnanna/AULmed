@@ -13,7 +13,11 @@
 
 
 
-    <?php if ($haspage) : ?>
+    <?php
+
+    use Apps\Template;
+
+    if ($haspage) : ?>
 
         <title>AUL Medical Education</title>
         <meta name="description" content="We are a medical and healthcare teaching platform. We use people's real stories, thought contributions from experts, and video explainers to teach our audience how to take care of themselves">
@@ -75,7 +79,11 @@
                                             <a href="./pages/health-topics">Health</a>
                                             <ul>
                                                 <li><a href="./pages/health-topics">Health Guide</a></li>
-                                                <li><a href="./pages/videos">Online Clases</a></li>
+                                                <?php if ($Template->storage("accid")) : ?>
+                                                    <li><a href="./pages/videos">Online Clases</a></li>
+                                                <?php else : ?>
+                                                    <li><a href="./visitors/pages/login">Online Clases</a></li>
+                                                <?php endif; ?>
                                             </ul>
                                         </li>
                                         <li class="sub"><a href="./pages/stories">Your Doctor's Diary</a></li>
@@ -84,24 +92,24 @@
                                         <li class="sub"><a href="./pages/about-us">About Us</a></li>
 
                                         <?php
-                                            $accid = $Template->storage("accid");
+                                        $accid = $Template->storage("accid");
 
-                                            $userSql = "SELECT * FROM `users` WHERE id='{$accid}'";
-                                            $uerResult = mysqli_query($Core->dbCon, $userSql);
-                                            $User = mysqli_fetch_object($uerResult);
-                                        
-                                            $Template->assign("User", $User);
+                                        $userSql = "SELECT * FROM `users` WHERE id='{$accid}'";
+                                        $uerResult = mysqli_query($Core->dbCon, $userSql);
+                                        $User = mysqli_fetch_object($uerResult);
+
+                                        $Template->assign("User", $User);
                                         ?>
 
                                         <?php if ($Template->storage("accid")) : ?>
-                                            
+
                                             <li class="sub">
                                                 <h6 class="text-danger">Hi <?= $User->fullName ?>!</h6>
                                                 <ul>
                                                     <li><a class="text-center" href="/visitors/pages/home">Go to Dashboard</a></li>
                                                     <li><a class="btn ss-btn py-3 px-4 mx-3 text-white text-center" href="/user/logout">Logout</a></li>
                                                 </ul>
-                                                
+
 
                                             </li>
                                         <?php else : ?>

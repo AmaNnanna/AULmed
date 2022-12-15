@@ -40,16 +40,19 @@ $Route->add('/', function () {
     $Template->render("home");
 }, 'GET');
 
-//Videos page//
+//Videos (Online classes) page//
 $Route->add("/pages/videos", function () {
 
     $Core = new Apps\Core;
     $Template = new Apps\Template;
 
+    $Template->addheader("layouts.header");
+    $Template->addfooter("layouts.footer");
+
     $Template->assign("haspage", true);
     $Template->assign("menukey", "Videos");
 
-    $Template->render("visitors.pages.login");
+    $Template->render("pages.videos");
 }, 'GET');
 
 //Get Details of Each Event

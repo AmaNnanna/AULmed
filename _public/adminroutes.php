@@ -359,35 +359,139 @@ $Route->add("/new_slide", function() {
 
     $data = $Core->post($_POST);
 
-    $slideImage = "";
+    $slideImageA = "";
+    $slideImageB = "";
+    $slideImageC = "";
+    $slideImageD = "";
+    $slideImageE = "";
 
-    $slideTitle = $data->slideTitle;
-    $videoLink = $data->videoLink;
     $doctor_id = $data->doctor_id;
-    $slideDescription = $data->slideDescription;
+    $Title = $data->Title;
+    $slideDescriptionA = $data->slideDescriptionA;
+    $slideDescriptionB = $data->slideDescriptionB;
+    $slideDescriptionC = $data->slideDescriptionC;
+    $slideDescriptionD = $data->slideDescriptionD;
+    $slideDescriptionE = $data->slideDescriptionE;
+    $blogContent = $data->blogContent;
+    $videoLink = $data->videoLink;
+    $videoImage = "";
 
-    //Uploading Event Pictures
-    $slideImage_path_to_db = "";
+    //Uploading Slide 1st Pictures
+    $slideImageA_path_to_db = "";
 
-    $Uploader = new \Verot\Upload\Upload($_FILES['slideImage']);
+    $Uploader = new \Verot\Upload\Upload($_FILES['slideImageA']);
 
     if ($Uploader->uploaded) {
         $name = md5(time() . mt_rand(1, 10000));
         $Uploader->file_new_name_body = $name;
-        $Uploader->process("./_store/event_pictures/");
+        $Uploader->process("./_store/sliders/");
 
         if ($Uploader->processed) {
-            $slideImage_path_to_db = $Uploader->file_dst_pathname;
+            $slideImageA_path_to_db = $Uploader->file_dst_pathname;
         } else {
         }
     }
 
-    $slideImage = $slideImage_path_to_db;
-    
-    $sql = "INSERT INTO `slides`(`slideImage`, `slideTitle`, `videoLink`, `doctor_id`, `slideDescription`) VALUES ('{$slideImage}', '{$slideTitle}', '{$videoLink}', '{$doctor_id}', '{$slideDescription}')";
-    $eventPosted = mysqli_query($Core->dbCon, $sql);
+    $slideImageA = $slideImageA_path_to_db;
 
-    if ($eventPosted) {
+    //Uploading Slide 2nd Pictures
+    $slideImageB_path_to_db = "";
+
+    $Uploader = new \Verot\Upload\Upload($_FILES['slideImageB']);
+
+    if ($Uploader->uploaded) {
+        $name = md5(time() . mt_rand(1, 10000));
+        $Uploader->file_new_name_body = $name;
+        $Uploader->process("./_store/sliders/");
+
+        if ($Uploader->processed) {
+            $slideImageB_path_to_db = $Uploader->file_dst_pathname;
+        } else {
+        }
+    }
+
+    $slideImageB = $slideImageB_path_to_db;
+
+    //Uploading Slide 3rd Pictures
+    $slideImageC_path_to_db = "";
+
+    $Uploader = new \Verot\Upload\Upload($_FILES['slideImageC']);
+
+    if ($Uploader->uploaded) {
+        $name = md5(time() . mt_rand(1, 10000));
+        $Uploader->file_new_name_body = $name;
+        $Uploader->process("./_store/sliders/");
+
+        if ($Uploader->processed) {
+            $slideImageC_path_to_db = $Uploader->file_dst_pathname;
+        } else {
+        }
+    }
+
+    $slideImageC = $slideImageC_path_to_db;
+
+    //Uploading Slide 4th Pictures
+    $slideImageD_path_to_db = "";
+
+    $Uploader = new \Verot\Upload\Upload($_FILES['slideImageD']);
+
+    if ($Uploader->uploaded) {
+        $name = md5(time() . mt_rand(1, 10000));
+        $Uploader->file_new_name_body = $name;
+        $Uploader->process("./_store/sliders/");
+
+        if ($Uploader->processed) {
+            $slideImageD_path_to_db = $Uploader->file_dst_pathname;
+        } else {
+        }
+    }
+
+    $slideImageD = $slideImageD_path_to_db;
+
+    //Uploading Slide 5th Pictures
+    $slideImageE_path_to_db = "";
+
+    $Uploader = new \Verot\Upload\Upload($_FILES['slideImageE']);
+
+    if ($Uploader->uploaded) {
+        $name = md5(time() . mt_rand(1, 10000));
+        $Uploader->file_new_name_body = $name;
+        $Uploader->process("./_store/sliders/");
+
+        if ($Uploader->processed) {
+            $slideImageE_path_to_db = $Uploader->file_dst_pathname;
+        } else {
+        }
+    }
+
+    $slideImageE = $slideImageE_path_to_db;
+
+    //Upload Image for Video
+    $videoImage_path_to_db = "";
+
+    $Uploader = new \Verot\Upload\Upload($_FILES['videoImage']);
+
+    if ($Uploader->uploaded) {
+        $name = md5(time() . mt_rand(1, 10000));
+        $Uploader->file_new_name_body = $name;
+        $Uploader->process("./_store/sliders/");
+
+        if ($Uploader->processed) {
+            $videoImage_path_to_db = $Uploader->file_dst_pathname;
+        } else {
+        }
+    }
+
+    $videoImage = $videoImage_path_to_db;
+    
+    $sql = "INSERT INTO 
+                `slides`(`slideImageA`, `slideImageB`, `slideImageC`, `slideImageD`, `slideImageE`, `doctor_id`, `Title`, `slideDescriptionA`, `slideDescriptionB`, `slideDescriptionC`, `slideDescriptionD`, `slideDescriptionE`, `blogContent`, `videoLink`, `videoImage`) 
+            VALUES 
+                ('{$slideImageA}', '{$slideImageB}', '{$slideImageC}', '{$slideImageD}', '{$slideImageE}', '{$doctor_id}', '{$Title}', '{$slideDescriptionA}', '{$slideDescriptionB}', '{$slideDescriptionC}', '{$slideDescriptionD}', '{$slideDescriptionE}', '{$blogContent}', '{$videoLink}', '{$videoImage}')";
+
+    $slidePosted = mysqli_query($Core->dbCon, $sql);
+
+    if ($slidePosted) {
         $Template->setError("You have successfully added a new Dairy", "success", "/admin/pages/admin-home");
         $Template->redirect("/admin/pages/admin-home");
     }
