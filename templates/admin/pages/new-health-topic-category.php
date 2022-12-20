@@ -14,19 +14,19 @@ include_once 'sidebar.php';
             <div class="card">
                 <div class="card-body d-flex justify-content-center">
                     <div class="comment-respond" id="respond">
-                        <h4 class="comment-reply-title text-primary" id="reply-title">Add a Doctor or Professional to Create Diaries or Video Tutorial</h4>
-                        <form class="comment-form" id="commentform" action="/new_doctor" method="POST">
+                        <h4 class="comment-reply-title text-primary" id="reply-title">Create New Health Topic Category</h4>
+                        <form class="comment-form" id="commentform" action="/new_health_topic_category" method="POST">
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <label for="name" class="text-black font-w600">Enter Doctor/Professional's Name<span class="required" style="color: red;">*</span></label>
-                                        <input type="text" class="form-control" name="name">
+                                        <label for="category" class="text-black font-w600">Enter Category Name<span class="required" style="color: red;">*</span></label>
+                                        <input type="text" class="form-control" name="category">
                                     </div>
                                 </div>
 
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <input type="submit" value="Add Doctor to List" class="submit btn btn-primary">
+                                        <input type="submit" value="Create Category" class="submit btn btn-primary">
                                     </div>
                                 </div>
                             </div>

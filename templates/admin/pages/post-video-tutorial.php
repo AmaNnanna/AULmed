@@ -30,17 +30,17 @@ include_once 'sidebar.php';
             <div class="col-xl-6">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title">Add a New Doctor</h5>
+                        <h5 class="card-title">Add a New Video Creator</h5>
                     </div>
                     <div class="card-body">
-                        <p class="card-text">Create a New Doctor to Create Diaries.</p>
+                        <p class="card-text">Add a New Professional Who Can Create Video Tutorials.</p>
                     </div>
                     <div class="card-footer d-sm-flex justify-content-between align-items-center">
                         <div class="card-footer-link mb-4 mb-sm-0">
                             <a href="/admin/pages/all-doctors" class="card-text text-dark d-inline">View All Doctors & Creators</a>
                         </div>
 
-                        <a href="/admin/pages/new-doctor" class="btn btn-primary">Add a New Doctor</a>
+                        <a href="/admin/pages/new-doctor" class="btn btn-primary">Add a New Creator</a>
                     </div>
                 </div>
             </div>
@@ -48,17 +48,17 @@ include_once 'sidebar.php';
             <div class="col-xl-6">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title">Add a New Dairy</h5>
+                        <h5 class="card-title">Add a New Tutorial</h5>
                     </div>
                     <div class="card-body">
-                        <p class="card-text">Add to Your Own Personal Diary.</p>
+                        <p class="card-text">Add to Your Own Video Tutorial.</p>
                     </div>
                     <div class="card-footer d-sm-flex justify-content-between align-items-center">
                         <div class="card-footer-link mb-4 mb-sm-0">
-                            <a href="/admin/pages/all-diaries" class="card-text text-dark d-inline">View All Doctors' Diaries</a>
+                            
                         </div>
 
-                        <a href="/admin/pages/new-personal-diary" class="btn btn-primary">Add Your New Diary</a>
+                        <a href="/admin/pages/new-video-tutorial" class="btn btn-primary">Add New Video Tutorial</a>
                     </div>
                 </div>
             </div>

@@ -94,7 +94,7 @@ include_once 'sidebar.php';
                         </div>
 
                         <div>
-                            <a href="" class="btn btn-primary" data-toggle="modal" data-target="addOrderModalside1">Add New Event</a>
+                            <a href="" class="btn btn-primary" data-toggle="modal" data-target="addOrderModalside">Add New Event</a>
                             
                             <?php include_once 'new-event.php'; ?>
 
@@ -102,6 +102,43 @@ include_once 'sidebar.php';
                     </div>
                 </div>
             </div>
+
+            <div class="col-xl-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Health Topic</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Create a new health topic.</p>
+                    </div>
+                    <div class="card-footer d-sm-flex justify-content-between align-items-center">
+                        <div class="card-footer-link mb-4 mb-sm-0">
+                            <a href="/admin/pages/all-health-topics" class="card-text text-dark d-inline">View all Health Topics</a>
+                        </div>
+
+                        <a href="/admin/pages/post-health-topic" class="btn btn-primary">Create New Health Topic</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Video Tutorial</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Add a new video tutorial.</p>
+                    </div>
+                    <div class="card-footer d-sm-flex justify-content-between align-items-center">
+                        <div class="card-footer-link mb-4 mb-sm-0">
+                            <a href="/admin/pages/all-video-tutorials" class="card-text text-dark d-inline">View all Video Tutorials</a>
+                        </div>
+
+                        <a href="/admin/pages/post-video-tutorial" class="btn btn-primary">Create New Video Tutorial</a>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

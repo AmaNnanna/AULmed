@@ -30,17 +30,17 @@ include_once 'sidebar.php';
             <div class="col-xl-6">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title">Add a New Doctor</h5>
+                        <h5 class="card-title">Create New Health Topic Category</h5>
                     </div>
                     <div class="card-body">
-                        <p class="card-text">Create a New Doctor to Create Diaries.</p>
+                        <p class="card-text">Create a new category for Health Topics.</p>
                     </div>
                     <div class="card-footer d-sm-flex justify-content-between align-items-center">
                         <div class="card-footer-link mb-4 mb-sm-0">
-                            <a href="/admin/pages/all-doctors" class="card-text text-dark d-inline">View All Doctors & Creators</a>
+                            <a href="/admin/pages/all-categories" class="card-text text-dark d-inline">View & Manage Categories</a>
                         </div>
 
-                        <a href="/admin/pages/new-doctor" class="btn btn-primary">Add a New Doctor</a>
+                        <a href="/admin/pages/new-health-topic-category" class="btn btn-primary">Create New Category</a>
                     </div>
                 </div>
             </div>
@@ -48,17 +48,17 @@ include_once 'sidebar.php';
             <div class="col-xl-6">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title">Add a New Dairy</h5>
+                        <h5 class="card-title">Add a New Heath Topic</h5>
                     </div>
                     <div class="card-body">
-                        <p class="card-text">Add to Your Own Personal Diary.</p>
+                        <p class="card-text">Create a new Health Topic & select an appropriate category.</p>
                     </div>
                     <div class="card-footer d-sm-flex justify-content-between align-items-center">
                         <div class="card-footer-link mb-4 mb-sm-0">
-                            <a href="/admin/pages/all-diaries" class="card-text text-dark d-inline">View All Doctors' Diaries</a>
+                            
                         </div>
 
-                        <a href="/admin/pages/new-personal-diary" class="btn btn-primary">Add Your New Diary</a>
+                        <a href="/admin/pages/new-health-topic" class="btn btn-primary">Create New Health Topic</a>
                     </div>
                 </div>
             </div>

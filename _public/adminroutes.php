@@ -352,6 +352,26 @@ $Route->add("/new_doctor", function() {
     $Template->redirect("/admin/pages/new-diary");
 }, 'POST');
 
+//Add New Health Topic Category
+$Route->add("/new_health_topic_category", function() {
+    $Core = new Apps\Core;
+    $Template = new Apps\Template;
+
+    $data = $Core->post($_POST);
+
+    $category = $data->category;
+
+    $sql = "INSERT INTO `heath_topic_groups`(`category`) VALUES ('{$category}')";
+    $doctorAdded = mysqli_query($Core->dbCon, $sql);
+
+    if ($doctorAdded) {
+        $Template->setError("You have Created a New Category", "success", "/admin/pages/post-health-topic");
+        $Template->redirect("/admin/pages/post-health-topic");
+    }
+    $Template->setError("This Category already exists, or something went wrong.", "success", "/admin/pages/post-health-topic");
+    $Template->redirect("/admin/pages/post-health-topic");
+}, 'POST');
+
 //Create New Slide
 $Route->add("/new_slide", function() {
     $Core = new Apps\Core;
@@ -496,6 +516,53 @@ $Route->add("/new_slide", function() {
         $Template->redirect("/admin/pages/admin-home");
     }
     $Template->setError("This Dairy was unable to create, please try again", "success", "/admin/pages/admin-home");
+    $Template->redirect("/admin/pages/admin-home");
+}, 'POST');
+
+//Create New Video Tutorial
+$Route->add("/new_video_tutorial", function() {
+    $Core = new Apps\Core;
+    $Template = new Apps\Template;
+
+    $data = $Core->post($_POST);
+
+    $image_thumbnail = "";
+
+    $doctor_id = $data->doctor_id;
+    $title = $data->title;
+    $description = $data->description;
+    $creator_name = $data->creator_name;
+    $creator_designation = $data->creator_designation;
+    $video_link = $data->video_link;
+    $video_source = $data->video_source;
+    $video_duration = $data->video_duration;
+
+    //Uploading Video Image thumbnail
+    $image_thumbnail_path_to_db = "";
+
+    $Uploader = new \Verot\Upload\Upload($_FILES['image_thumbnail']);
+
+    if ($Uploader->uploaded) {
+        $name = md5(time() . mt_rand(1, 10000));
+        $Uploader->file_new_name_body = $name;
+        $Uploader->process("./_store/video_tutorial/");
+
+        if ($Uploader->processed) {
+            $image_thumbnail_path_to_db = $Uploader->file_dst_pathname;
+        } else {
+        }
+    }
+
+    $image_thumbnail = $image_thumbnail_path_to_db;
+    
+    $sql = "INSERT INTO `video_tutorials`(`image_thumbnail`, `doctor_id`, `title`, `description`, `creator_name`, `creator_designation`, `video_link`, `video_source`, `video_duration`) VALUES ('{$image_thumbnail}', '{$doctor_id}', '{$title}', '{$description}', '{$creator_name}', '{$creator_designation}', '{$video_link}' '{$video_source}', '{$video_duration}')";
+    $eventPosted = mysqli_query($Core->dbCon, $sql);
+
+    if ($eventPosted) {
+        $Template->setError("You have successfully added this new Video Tutorial", "success", "/admin/pages/admin-home");
+        $Template->redirect("/admin/pages/admin-home");
+    }
+    $Template->setError("This Tutorial failed to create, please try again.", "success", "/admin/pages/admin-home");
     $Template->redirect("/admin/pages/admin-home");
 }, 'POST');
 

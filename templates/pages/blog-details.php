@@ -89,8 +89,8 @@
                                     <a href="http://www.facebook.com/sharer.php?u=https://aulmed.org/pages/<?= $BlogPost->id ?>/blog-details&text=<?= $BlogPost->heading ?>" target="_blank"><i class="fab fa-facebook-f"></i></a>
                                     <a href="https://twitter.com/share?url=https://aulmed.org/pages/1/blog-details&text=<?= $BlogPost->heading ?>" target="_blank"><i class="fab fa-twitter"></i></a>
                                     <a href="http://www.linkedin.com/shareArticle?mini=true&url=https://aulmed.org/pages/<?= $BlogPost->id ?>/blog-details&text=<?= $BlogPost->heading ?>" target="_blank"><i class="fab fa-linkedin"></i></a>
-                                    <a href="https://api.whatsapp.com/send?&text=<?= $BlogPost->heading ?>%20https://aulmed.org/pages/<?= $BlogPost->id ?>/blog-details" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                                    <a href="mailto:?Subject=<?= $BlogPost->heading ?>&Body=https://aulmed.org/pages/<?= $BlogPost->id ?>/blog-details <?= $BlogPost->heading ?>" target="_blank"><i class="fa fa-envelope"></i></a>
+                                    <a href="https://api.whatsapp.com/send?&text=<?= $BlogPost->heading ?>%0ARead Here:%20https://aulmed.org/pages/<?= $BlogPost->id ?>/blog-details" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                                    <a href="mailto:?Subject=<?= $BlogPost->heading ?>&Body=<?= $BlogPost->heading ?>%0ARead More: https://aulmed.org/pages/<?= $BlogPost->id ?>/blog-details" target="_blank"><i class="fa fa-envelope"></i></a>
                                 </div>
                             <?php endwhile; ?>
                         </div>
