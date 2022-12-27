@@ -372,6 +372,78 @@ $Route->add("/new_health_topic_category", function() {
     $Template->redirect("/admin/pages/post-health-topic");
 }, 'POST');
 
+//Create New Health Topic
+$Route->add("/new_health_topic", function() {
+    $Core = new Apps\Core;
+    $Template = new Apps\Template;
+
+    $data = $Core->post($_POST);
+
+    $healthImage = "";
+    $videoImage = "";
+
+    $category_id = $data->category_id;
+    $healthTitle = $data->healthTitle;
+    $imageTitle = $data->imageTitle;
+    $firstContent = $data->firstContent;
+    $lastContent = $data->lastContent;
+    $healthVideo = $data->healthVideo;
+    $videoTitle = $data->videoTitle;
+    $healthQuote = $data->healthQuote;
+    $quoteAuthor = $data->quoteAuthor;
+    
+
+    //Uploading Health Topic Image
+    $healthImage_path_to_db = "";
+
+    $Uploader = new \Verot\Upload\Upload($_FILES['healthImage']);
+
+    if ($Uploader->uploaded) {
+        $name = md5(time() . mt_rand(1, 10000));
+        $Uploader->file_new_name_body = $name;
+        $Uploader->process("./_store/health_topics/");
+
+        if ($Uploader->processed) {
+            $healthImage_path_to_db = $Uploader->file_dst_pathname;
+        } else {
+        }
+    }
+
+    $healthImage = $healthImage_path_to_db;
+
+    //Upload Image for Video
+    $videoImage_path_to_db = "";
+
+    $Uploader = new \Verot\Upload\Upload($_FILES['videoImage']);
+
+    if ($Uploader->uploaded) {
+        $name = md5(time() . mt_rand(1, 10000));
+        $Uploader->file_new_name_body = $name;
+        $Uploader->process("./_store/health_topics/");
+
+        if ($Uploader->processed) {
+            $videoImage_path_to_db = $Uploader->file_dst_pathname;
+        } else {
+        }
+    }
+
+    $videoImage = $videoImage_path_to_db;
+    
+    $sql = "INSERT INTO 
+                `health_topics`(`healthImage`, `videoImage`, `category_id`, `healthTitle`, `imageTitle`, `firstContent`, `lastContent`, `healthVideo`, `videoTitle`, `healthQuote`, `quoteAuthor`) 
+            VALUES 
+                ('{$healthImage}', '{$videoImage}', '{$category_id}', '{$healthTitle}', '{$imageTitle}', '{$firstContent}', '{$lastContent}', '{$healthVideo}', '{$videoTitle}', '{$healthQuote}', '{$quoteAuthor}')";
+
+    $healthTopic = mysqli_query($Core->dbCon, $sql);
+
+    if ($healthTopic) {
+        $Template->setError("You have successfully posted this Health Topic", "success", "/admin/pages/post-health-topic");
+        $Template->redirect("/admin/pages/post-health-topic");
+    }
+    $Template->setError("Couldn't create this Health Topic, please try again", "success", "/admin/pages/post-health-topic");
+    $Template->redirect("/admin/pages/post-health-topic");
+}, 'POST');
+
 //Create New Slide
 $Route->add("/new_slide", function() {
     $Core = new Apps\Core;
