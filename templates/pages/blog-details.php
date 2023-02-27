@@ -46,21 +46,25 @@
                                 </ul>
                             </div>
                             <div><?= $BlogDetails->firstContent ?></div>
+
+                            <?php if (!empty($BlogDetails->blockQuote)) : ?>
                             <blockquote>
                                 <footer><?= $BlogDetails->quoteAuthor ?></footer>
                                 <h3><?= $BlogDetails->blockQuote ?></h3>
                             </blockquote>
+                            <?php endif; ?>
 
-                            <div class="bsingle__post mb-50">
-                                <div class="bsingle__post-thumb video-p">
-                                    <img src="<?= $BlogDetails->secondImage ?>" alt="">
+                            <?php if (!empty($BlogDetails->videoLink)) : ?>
+                                <div class="bsingle__post mb-50">
+                                    <div class="bsingle__post-thumb video-p">
+                                        <img src="<?= $BlogDetails->secondImage ?>" alt="">
 
-                                    <a href="<?= $BlogDetails->videoLink ?>" class="video-i popup-video"> <i class="fas fa-play"></i></a>
+                                        <a href="<?= $BlogDetails->videoLink ?>" class="video-i popup-video"> <i class="fas fa-play"></i></a>
 
-                                    <h4><?= $BlogDetails->secondImageHeading ?></h4>
+                                        <h4><?= $BlogDetails->secondImageHeading ?></h4>
+                                    </div>
                                 </div>
-                            </div>
-
+                            <?php endif; ?>
 
                             <div><?= $BlogDetails->secondContent ?></div>
 
@@ -84,7 +88,7 @@
                     <section id="custom_html-5" class="widget_text widget widget_custom_html mb-50">
                         <h2 class="widget-title">Share</h2>
                         <div class="textwidget custom-html-widget">
-                            <?php while ($BlogPosts = mysqli_fetch_object($BlogPosts)) : ?>
+                            <?php while ($BlogPost = mysqli_fetch_object($BlogPosts)) : ?>
                                 <div class="widget-social">
                                     <a href="http://www.facebook.com/sharer.php?u=https://aulmed.org/pages/<?= $BlogPost->id ?>/blog-details&text=<?= $BlogPost->heading ?>" target="_blank"><i class="fab fa-facebook-f"></i></a>
                                     <a href="https://twitter.com/share?url=https://aulmed.org/pages/1/blog-details&text=<?= $BlogPost->heading ?>" target="_blank"><i class="fab fa-twitter"></i></a>

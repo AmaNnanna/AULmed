@@ -36,7 +36,7 @@
                     </div>
                     <div class="bsingle__content">
                         <div class="admin">
-                            <a href="mailto:<?= $EventDetails->email ?>"><i class="far fa-user"></i>Organized by: <?= $EventDetails->organizer ?></a>
+                            <a href="mailto:<?= $EventDetails->email ?>"><i class="far fa-user"></i>Organiser: <?= $EventDetails->organizer ?></a>
                         </div>
 
                         <h2><?= $EventDetails->title ?></h2>

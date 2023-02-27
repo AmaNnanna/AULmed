@@ -52,6 +52,10 @@ $Route->add("/pages/videos", function () {
     $Template->assign("haspage", true);
     $Template->assign("menukey", "Videos");
 
+    $sql = "SELECT * FROM video_tutorials ORDER BY id DESC";
+    $VideoTutorials = mysqli_query($Core->dbCon, $sql);
+    $Template->assign("VideoTutorials", $VideoTutorials);
+
     $Template->render("pages.videos");
 }, 'GET');
 
@@ -71,8 +75,8 @@ $Route->add("/pages/{id}/event-details", function ($id) {
     $full_event = mysqli_query($Core->dbCon, $sql);
     $EventDetails = mysqli_fetch_object($full_event);
 
-    $Template->assign("title", $EventDetails->title);
-    $Template->assign("description", substr($EventDetails->description,120) );
+    // $Template->assign("title", $EventDetails->title);
+    // $Template->assign("description", substr($EventDetails->description,120) );
 
     $Template->assign("EventDetails", $EventDetails);
 

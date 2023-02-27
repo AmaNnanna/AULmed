@@ -135,7 +135,7 @@ $Route->add("/admin/pages/all-reviews", function () {
 $Route->add("/admin/pages/{shortname}", function ($shortname) {
 
     $Core = new Apps\Core;
-    $Template = new Apps\Template(auth_url);
+    $Template = new Apps\Template;
 
     $Template->addheader("admin.layouts.header");
     $Template->addfooter("admin.layouts.footer");
@@ -345,8 +345,8 @@ $Route->add("/new_doctor", function() {
     $doctorAdded = mysqli_query($Core->dbCon, $sql);
 
     if ($doctorAdded) {
-        $Template->setError("You have successfully added Doctor to list", "success", "/admin/pages/new-diary");
-        $Template->redirect("/admin/pages/new-diary");
+        $Template->setError("You have successfully added to Doctors list", "success", "/admin/pages/admin-home");
+        $Template->redirect("/admin/pages/admin-home");
     }
     $Template->setError("This Doctor Already Exits in the List", "success", "/admin/pages/new-diary");
     $Template->redirect("/admin/pages/new-diary");
@@ -627,7 +627,10 @@ $Route->add("/new_video_tutorial", function() {
 
     $image_thumbnail = $image_thumbnail_path_to_db;
     
-    $sql = "INSERT INTO `video_tutorials`(`image_thumbnail`, `doctor_id`, `title`, `description`, `creator_name`, `creator_designation`, `video_link`, `video_source`, `video_duration`) VALUES ('{$image_thumbnail}', '{$doctor_id}', '{$title}', '{$description}', '{$creator_name}', '{$creator_designation}', '{$video_link}' '{$video_source}', '{$video_duration}')";
+    $sql = "INSERT INTO
+                `video_tutorials`(`image_thumbnail`, `doctor_id`, `title`, `description`, `creator_name`, `creator_designation`, `video_link`, `video_source`, `video_duration`)
+            VALUES
+                ('{$image_thumbnail}', '{$doctor_id}', '{$title}', '{$description}', '{$creator_name}', '{$creator_designation}', '{$video_link}' '{$video_source}', '{$video_duration}')";
     $eventPosted = mysqli_query($Core->dbCon, $sql);
 
     if ($eventPosted) {
@@ -673,7 +676,10 @@ $Route->add("/new_event", function() {
 
     $eventImage = $eventImage_path_to_db;
     
-    $sql = "INSERT INTO `events`(`eventImage`, `title`, `startDate`, `endDate`, `venue`, `eventDescription`, `organizer`, `email`) VALUES ('{$eventImage}', '{$title}', '{$startDate}', '{$endDate}', '{$venue}', '{$eventDescription}' '{$organizer}', '{$email}')";
+    $sql = "INSERT INTO
+                `events`(`eventImage`, `title`, `startDate`, `endDate`, `venue`, `eventDescription`, `organizer`, `email`)
+            VALUES
+                ('{$eventImage}', '{$title}', '{$startDate}', '{$endDate}', '{$venue}', '{$eventDescription}' '{$organizer}', '{$email}')";
     $eventPosted = mysqli_query($Core->dbCon, $sql);
 
     if ($eventPosted) {

@@ -20,7 +20,7 @@ include_once 'sidebar.php';
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="campaignTopic" class="text-black font-w600">Enter a Title for this Tutorial<span class="required" style="color: red;">*</span></label>
-                                        <input type="text" class="form-control" name="campaignTopic" required />
+                                        <input type="text" class="form-control" name="title" required />
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -61,15 +61,15 @@ include_once 'sidebar.php';
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label for="video_duration" class="text-black font-w600">How Long is this Video (In Munites or Hours)?</label>
-                                        <input type="text" class="form-control" name="video_duration">
+                                        <label for="video_source" class="text-black font-w600">Where is this Video Playing from (Eg. YouTube, Venmo)?</label>
+                                        <input type="text" class="form-control" name="video_source">
                                     </div>
                                 </div>
 
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label for="video_source" class="text-black font-w600">Where is this Video Playing from (Eg. YouTube, Venmo)?</label>
-                                        <input type="text" class="form-control" name="video_source">
+                                        <label for="video_duration" class="text-black font-w600">How Long is this Video (In Munites or Hours)?</label>
+                                        <input type="text" class="form-control" name="video_duration">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -83,7 +83,7 @@ include_once 'sidebar.php';
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label for="campaignDescription" class="text-black font-w600">Write a Brief Description for this Campaign <span class="text-danger">(200 characters max.)</span></label>
-                                        <input type="text" class="form-control" name="campaignDescription" maxlength="200">
+                                        <input type="text" class="form-control" name="description" maxlength="200">
                                     </div>
                                 </div>
 
