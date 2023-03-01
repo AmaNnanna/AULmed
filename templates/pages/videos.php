@@ -29,13 +29,13 @@
     <div class="container">
         <div class="row align-items-center">
 
-            <?php while ($Campaign = mysqli_fetch_object($Campaigns)) : ?>
+            <?php while ($VideoTutorial = mysqli_fetch_object($VideoTutorials)) : ?>
                 <div class="col-lg-4 col-md-6">
                     <div class="product couress-box mb-40">
                         <div class="product__img">
 
-                            <div class="video-img wow fadeInRight animated" data-animation="fadeInDown animated" data-delay=".  2s" style="background-image:url(img/video/vedio-img.png); background-repeat: no-repeat; background-position: center;">
-                                <a href="https://www.youtube.com/watch?v=gyGsPlt06bo" class="video-i popup-video"> <img src="img/video/play.svg" alt="img" class="active-icon"></a>
+                            <div class="video-img wow fadeInRight animated" data-animation="fadeInDown animated" data-delay=".  2s" style="background-image:url(<?= $VideoTutorial->image_thumbnail ?>); background-repeat: no-repeat; background-position: center;">
+                                <a href="<?= $VideoTutorial->video_link ?>" class="video-i popup-video"> <img src="<?= $VideoTutorial->image_thumbnail ?>" alt="img" class="active-icon"></a>
                             </div>
 
                         </div>
@@ -44,21 +44,21 @@
                                 <li class="author">
                                     <div class="text">
                                         <ul>
-                                            <li>Robto Jone</li>
-                                            <li>Teacher</li>
+                                            <li><?= $VideoTutorial->creator_name ?></li>
+                                            <li><?= $VideoTutorial->creator_designation ?></li>
                                         </ul>
                                     </div>
                                 </li>
                             </ul>
-                            <h4 class="pro-title"><a href="courses-details.html">Zero to Hero in Python 3</a></h4>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur accusamus hic ea in autem debitis minima.</p>
+                            <h4 class="pro-title"><a href="courses-details.html"><?= $VideoTutorial->title ?></a></h4>
+                            <p><?= $VideoTutorial->description ?></p>
                             <ul class="course-meta desc">
                                 <li>
-                                    <h6>YouTube</h6>
+                                    <h6><?= $VideoTutorial->video_source ?></h6>
                                     <span>Course Source</span>
                                 </li>
                                 <li>
-                                    <h6><span class="course-time">7:00 - 10:00</span></h6>
+                                    <h6><span class="course-time"><?= $VideoTutorial->video_duration ?></span></h6>
                                     <span> Course Duration</span>
                                 </li>
                             </ul>

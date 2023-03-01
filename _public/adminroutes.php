@@ -633,6 +633,9 @@ $Route->add("/new_video_tutorial", function() {
                 ('{$image_thumbnail}', '{$doctor_id}', '{$title}', '{$description}', '{$creator_name}', '{$creator_designation}', '{$video_link}' '{$video_source}', '{$video_duration}')";
     $eventPosted = mysqli_query($Core->dbCon, $sql);
 
+    // $Template->debug($video_duration);
+
+
     if ($eventPosted) {
         $Template->setError("You have successfully added this new Video Tutorial", "success", "/admin/pages/admin-home");
         $Template->redirect("/admin/pages/admin-home");
